@@ -3,10 +3,6 @@ var cinemaNameArray = new Array();
 var AppId = '';
 var AppURL = '';
 function GetApp(){
-	$(document.body).on('click', '#addUser', function() {
-			$('#myModal').modal();
-		});
-	return true;
 	$.getJSON('../app.json', function(data) {
 		AppId = data.id;
 		AppURL = data.url;
@@ -22,7 +18,7 @@ function StartApp(){
 			client.currentUser.mobileServiceAuthenticationToken = localStorage.getItem('mobileServiceAuthenticationToken');
 			$('.adminName').html(localStorage.getItem('userName'));
 		}else{
-			top.location.href = 'login.html';
+			//top.location.href = 'login.html';
 		}
 		console.log(client);
 		// handle error
@@ -55,20 +51,17 @@ function StartApp(){
 				var listItems = $.map(todoItems, function(item) {
 					
 						var html='';
-							html +='<div class="panel panel-default" data-id="'+item.id+'">';
-							html +='<div class="panel-heading">';
-							html +='<div class="col-lg-11 cityName"> '+item.name+'</div>';
-							html +='<div class="col-lg-1">';
+							html +='<tr data-id="'+item.id+'">';
+							html +='<td> '+item.id+'</div>';
+							html +='<td> '+item.name+'</div>';
+							html +='<td>';
 							html +='<button  class="close"  data-id="'+item.id+'">x</button>';
 							html +="<button data-name='"+item.name+"' data-id='"+item.id+"' data-fb='"+item.fb+"' data-twt='"+item.twitter+"' data-micro='"+item.microsoft+"' data-status='"+item.status+"' data-google='"+item.google+"'  type='button' class='edit' title='edit'><span class='glyphicon glyphicon-pencil'></span></button>";
-							html +='</div>     ';              
-							html +='<div class="clearOnly"></div>';
-							html +='</div>';
-							html +='</div>';
+							html +='</td>';  
 						return  $(html)														
 				});
 				 $('#todo-items').empty().append(listItems).toggle(listItems.length > 0);
-				 $('.loader').hide();
+				 $('.preLoader').hide();
 			
 			}, handleError);
     
@@ -93,20 +86,20 @@ function StartApp(){
 			if($(this).attr('data-id')){
 			var result = confirm("You are about to delete this item, all associated data will de deleted. Click OK to continue.");
 			if (result==true) {
-				$('.loader').show();
+				$('.preLoader').show();
 			UserTable.del({ id: $(this).attr('data-id') }).then(createHtmlForUsers, handleError).done(function(){
-				$('.loader').hide();
+				$('.preLoader').hide();
 			});
 			}}
 		});
-		$(document.body).on('click', '#addCity', function() {
+		$(document.body).on('click', '#addUser', function() {
 			$('#cityName').html('');
 			$('#cityId').val('');
 			$('#myModal').modal();
 		});
 		
 		$('#add-item').on('click',function() {
-			$('.loader').show();
+			$('.preLoader').show();
 			var userName = $('#userName').val();
 			var userFb = $('#userFb').val();
 			var userTwt = $('#userTwt').val();
@@ -127,7 +120,7 @@ function StartApp(){
 						};
 						UserTable.insert(theNewRow).then(createHtmlForUsers, handleError).then(function(){
 							$('#myModal').modal('hide');
-							$('.loader').hide();
+							$('.preLoader').hide();
 						});
 				}else{
 						var theNewRow = {
@@ -141,7 +134,7 @@ function StartApp(){
 						};
 						UserTable.update(theNewRow).then(createHtmlForUsers, handleError).then(function(){
 							$('#myModal').modal('hide');
-							$('.loader').hide();
+							$('.preLoader').hide();
 						});
 				}
 												

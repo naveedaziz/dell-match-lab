@@ -143,7 +143,7 @@ function StartApp(){
 			 var spanTops = '';
 			 $.each(Catagories, function(indexs,item) {
 				 	 spanTops += '<span class="label label-info pull-left">';
-                  	 spanTops += 'Inspiron Series';
+                  	 spanTops += item.name;
                      spanTops += '</span>';
 				 
 				 var lengths = 0;

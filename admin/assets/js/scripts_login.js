@@ -23,8 +23,8 @@ function refreshAuthDisplay() {
 	var isLoggedIn = client.currentUser !== null;
 	if (isLoggedIn) {
 		console.log(client.currentUser);
-		$('.loader').html('Validating...');
-		$('.loader').removeClass('hideMe');
+		//$('.preLoader').html('Validating...');
+		$('.preLoader').show();
 		GlobalUserId = client.currentUser.userId;
 		GlobalUserKey = client.currentUser.mobileServiceAuthenticationToken;
 		var clientId = client.currentUser.userId;
@@ -56,11 +56,11 @@ function checkUser(id,platform){
 						localStorage.setItem('userId',GlobalUserId);
 						localStorage.setItem('mobileServiceAuthenticationToken',GlobalUserKey);
 						localStorage.setItem('userName',items.name);
-						top.location.href = 'users.html';
+						top.location.href = 'dashboard.html';
 						UserFound++;
 				});
 			}, handleError).done(function(){
-				$('.loader').addClass('hideMe');
+				$('.preLoader').hide();
 				if(UserFound == 0){
 					alert('You are not authorise user for this admin. Kindly do contact admin for futher assitance');
 				}

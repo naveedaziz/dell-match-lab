@@ -5,6 +5,7 @@ var AppURL = '';
 var statusProd = new Array();
 statusProd[0] = "In-active";
 statusProd[1] = "Active";
+var CatagoryArray = {};
 function GetApp(){
 	/*$(document.body).on('click', '#addProduct', function() {
 			//$('#cityName').html('');
@@ -21,6 +22,7 @@ function GetApp(){
 function StartApp(){	
 	var client = new WindowsAzure.MobileServiceClient(AppURL, AppId),
 		ProductTable = client.getTable('product');
+		CatagoryTable = client.getTable('catagory');
 		if(localStorage.getItem('userId')){
 			client.currentUser = {};
 			client.currentUser.userId = localStorage.getItem('userId');
@@ -50,6 +52,26 @@ function StartApp(){
 		//end get city function
 		
 		// createHtmlForMovies
+		function getCatagories(){
+			var query = CatagoryTable.where({status:'1'});
+		  /*var query = todoItemTable.where(function(dated){
+											return this.id <= dated
+											},2);*/
+			
+			query.read().then(function(todoItems) {
+				var listItems = $.map(todoItems, function(item) {
+						var html='';
+							html +='<option value="'+item.id+'">'+item.name+'</option>';
+							CatagoryArray[item.id] = item.name;
+						return  $(html)														
+				});
+				 $('#catagory').empty().append(listItems).toggle(listItems.length > 0);
+				 createHtmlForProduct();
+				// $('.preLoader').hide();
+			
+			}, handleError);
+    
+		}
 		function createHtmlForProduct(){
 			var query = ProductTable.where({});
 		  /*var query = todoItemTable.where(function(dated){
@@ -62,7 +84,7 @@ function StartApp(){
 						var html='';
 							html +='<tr class="panel panel-default" data-id="'+item.id+'">';
 							html +='<td> '+item.id+'</td>';
-							html +='<td> '+item.catagory+'</td>';
+							html +='<td> '+CatagoryArray[item.catagory]+'</td>';
 							html +='<td> '+item.name+'</td>';
 							html +='<td> '+item.start_price+'</td>';
 							html +='<td> '+statusProd[item.status]+'</td>';							
@@ -77,7 +99,7 @@ function StartApp(){
 			}, handleError);
     
 		}
-		createHtmlForProduct()
+		getCatagories();
 		//end createHtmlForMovies
 		// event listener
 		
