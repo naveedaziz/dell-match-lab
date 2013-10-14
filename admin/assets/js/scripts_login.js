@@ -7,7 +7,7 @@ var GlobalUserId = 0;
 var GlobalUserKey = 0;
 var UserFound = 0;
 function GetApp(){
-	return true;
+	//sreturn true;
 	$.getJSON('../app.json', function(data) {
 		AppId = data.id;
 		AppURL = data.url;
