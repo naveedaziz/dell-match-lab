@@ -1,0 +1,87 @@
+body {
+  padding-top: 1px;
+}
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+.clear{
+	clear:both;
+	min-height:10px;
+}
+.pricingText{
+	text-align:right;
+}
+.clearOnly{
+	clear:both;
+}
+.movieTitle{
+	font-size:20px;
+}
+.closeSch{
+	float:right;
+}
+.loader{
+	position:fixed;
+	right:10px;
+	top:10px;
+	font-size:20px;
+	color:white;
+	z-index:9999;
+}
+.iconPlay{
+	position: relative;
+	left: 45px;
+	top: -136px;
+	display: inline-block;
+	width: 51px;
+}
+.floatRight{
+	float:right;
+}
+.colorRed a{
+	color:#428bca !important;
+}
+.hideMe{
+	display:none !important;
+}
+.label-info{
+	margin-top: 7px;
+	display: inline-block;
+	width: auto;
+	padding: 5px;
+
+}
+@media (min-width: 768px)  and (max-width:991px){
+	.container .row:nth-child(1) {
+	}
+}
+
+        /* override bootstrap styles */
+        /* bootstrap 3 helpers */
+
+.navbar-form input, .form-inline input {
+	width:auto;
+}
+
+header {
+	height:109px;
+}
+
+@media (min-width: 979px) {
+  #sidebar.affix-top {
+    position: static;
+  	margin-top:25px;
+  	width:228px;
+  }
+  
+  #sidebar.affix {
+    position: fixed;
+    top:25px;
+    width:228px;
+  }
+}
+
+.affix,.affix-top {
+   position:static;
+}
