@@ -4032,6 +4032,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
   padding-left: 0;
   margin: 20px 0;
   border-radius: 0px;
+  opacity: 0.2;
 }
 .pagination > li {
   display: inline;
