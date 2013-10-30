@@ -363,6 +363,8 @@ padding: 36px;
 .leftPos{
 	-webkit-transform: translateX(120%);
 	-webkit-transition: -webkit-transform 2s;
+	-ms-transform:: translateX(120%);
+	-ms-transition:: -ms-transform 2s;
 	position: absolute;
 	left: 7%;
 	top: 15%;
