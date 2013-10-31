@@ -13,7 +13,8 @@
 
 </head>
 
-<body class="bgGradient">
+
+<body class="bgGradient" onLoad="GetApp();">
 
 	<div class="row">
  		<header>
@@ -49,7 +50,7 @@ the Dell family of products</h4>
 <p>There’s a Dell touch product perfectly matched 
 to the way you work, play and live.</p>
           </div>
-          <div class="col-lg-4 ">
+          <div class="col-lg-4" align="center">
                         <h1 class="start_button">Start Here</h1>
           </div>
           <div class="col-lg-4">
@@ -75,7 +76,7 @@ connected than ever.</p>
 	<div class="container marginTop leftPos screen-1">
       <div class="row">
            <div class="col-lg-12"  align="center">
-                <img src="images/strip.png" width="90%" style="position:absolute; left:5%;">
+                <img src="images/strip.png" class="strip">
                
           </div>
       </div>
@@ -86,19 +87,19 @@ connected than ever.</p>
                 <p class="itemTitleP">Please provide your basic information</p>
                </div> 
                 <div class="col-lg-6 borderleft">
-                <div class="formName">
+                <form class="formName" id="add-item">
                 <fieldset>
                 	<label>Your Name</label>
                     <div class="clearfix"></div>
-                	<input type="text" placeholder="Your Name"> 
+                	<input required  type="text" placeholder="Your Name" id="userName"> 
                  </fieldset>
                  <fieldset>
                 	<label>Your Email</label>
                     <div class="clearfix"></div>
-                	<input type="text" placeholder="Your Email"> 
+                	<input required  type="email" placeholder="Your Email" id="userEmail"> 
                  </fieldset>
                  <button class="formSubmit"></button>
-                 </div>
+                 </form>
                </div>  
                <div class="clearfix"></div>
           </div>
@@ -109,33 +110,33 @@ connected than ever.</p>
     <div class="container marginTop  leftPos screen-2">
             <div class="row">
             <div class="col-lg-12"  align="center">
-                <img src="images/strip.png" width="90%" style="position:absolute; left:5%;">
+                <img src="images/strip.png" class="strip">
                 
             </div>
             </div>
             <div class="row mrgTop">
             <div class="col-lg-12 itemContainer">
                <div class="col-lg-12">
-                    <h1 class="UserTitle">Hi Zille Abbas, please select your country</h1>
+                    <h1 class="UserTitle">Hi <span class="userName"></span>, please select your country</h1>
                </div> 
               
                 <div class="col-sm-4" align="center">
-                    <div class="country singapore counterSelect"></div>
+                    <div class="country singapore counterSelect" data-id="1" data-name="Singapore"></div>
                </div> 
                <div class="col-sm-4" align="center">
-                    <div class="country indonsia counterSelect"></div>
+                    <div class="country indonsia counterSelect"  data-id="2" data-name="Indonesia"></div>
                </div> 
                <div class="col-sm-4" align="center">
-                    <div class="country malaysia counterSelect"></div>
+                    <div class="country malaysia counterSelect" data-id="3" data-name="Malaysia"></div>
                </div> 
                <div class="col-sm-4" align="center">
-                    <div class="country vitenam counterSelect"></div>
+                    <div class="country vitenam counterSelect" data-id="4" data-name="Vietnam"></div>
                </div> 
                <div class="col-sm-4" align="center">
-                    <div class="country philpine counterSelect"></div>
+                    <div class="country philpine counterSelect" data-id="5" data-name="Philippine"></div>
                </div> 
                <div class="col-sm-4" align="center">
-                    <div class="country thiland counterSelect"></div>
+                    <div class="country thiland counterSelect" data-id="10002" data-name="Thailand"></div>
                </div> 
                
                
@@ -148,24 +149,24 @@ connected than ever.</p>
     <div class="container marginTop  leftPos screen-3">
             <div class="row">
             <div class="col-lg-12"  align="center">
-                <img src="images/strip_1.png" width="90%" style="position:absolute; left:5%;">
+                <img src="images/strip_1.png" class="strip">
                 
             </div>
             </div>
             <div class="row mrgTop">
             <div class="col-lg-12 itemContainer">
                <div class="col-lg-12" >
-                    <h1 class="UserTitle">Hi Zille Abbas from Singapore, what do you want your device for?</h1>
+                    <h1 class="UserTitle">Hi <span class="userName"></span> from <span class="countryName"></span>, what do you want your device for?</h1>
                </div> 
               
                 <div class="col-sm-4" align="center">
-                    <div class="usage work usageSelect"></div>
+                    <div class="usage work usageSelect"  data-id="4"></div>
                </div> 
                <div class="col-sm-4" align="center">
-                    <div class="usage play usageSelect"></div>
+                    <div class="usage play usageSelect"  data-id="5"></div>
                </div> 
                <div class="col-sm-4" align="center">
-                    <div class="usage both usageSelect"></div>
+                    <div class="usage both usageSelect"  data-id="6"></div>
                </div>
                
                <div class="clearfix"></div>
@@ -177,33 +178,33 @@ connected than ever.</p>
     <div class="container marginTop  leftPos screen-4">
             <div class="row">
             <div class="col-lg-12" align="center">
-                <img src="images/strip_2.png" width="90%" style="position:absolute; left:5%;">
+                <img src="images/strip_2.png" class="strip">
                 
             </div>
             </div>
             <div class="row mrgTop">
             <div class="col-lg-12 itemContainer">
                <div class="col-lg-12">
-                    <h1 class="UserTitle">Hi Zille Abbas from Singapore, let’s be a little more specific</h1>
+                    <h1 class="UserTitle">Hi <span class="userName"></span> from <span class="countryName"></span>, let’s be a little more specific</h1>
                </div> 
               
                 <div class="col-sm-4" align="center">
-                    <div class="usage_detail workhigh usage_detailSelect"></div>
+                    <div class="usage_detail workhigh usage_detailSelect" data-id="8"></div>
                </div> 
                <div class="col-sm-4" align="center">
-                    <div class="usage_detail playhigh usage_detailSelect"></div>
+                    <div class="usage_detail playhigh usage_detailSelect" data-id="10"></div>
                </div> 
                <div class="col-sm-4" align="center">
-                    <div class="usage_detail bothhigh usage_detailSelect"></div>
+                    <div class="usage_detail bothhigh usage_detailSelect" data-id="12"></div>
                </div>
                <div class="col-sm-4" align="center">
-                    <div class="usage_detail worklow usage_detailSelect"></div>
+                    <div class="usage_detail worklow usage_detailSelect" data-id="7"></div>
                </div> 
                <div class="col-sm-4" align="center">
-                    <div class="usage_detail playlow usage_detailSelect"></div>
+                    <div class="usage_detail playlow usage_detailSelect" data-id="9"></div>
                </div> 
                <div class="col-sm-4" align="center">
-                    <div class="usage_detail bothlow usage_detailSelect"></div>
+                    <div class="usage_detail bothlow usage_detailSelect" data-id="11"></div>
                </div>
                
                <div class="clearfix"></div>
@@ -215,24 +216,24 @@ connected than ever.</p>
     <div class="container marginTop  leftPos screen-5">
             <div class="row">
             <div class="col-lg-12"  align="center">
-                <img src="images/strip_3.png" width="90%" style="position:absolute; left:0;">
+                <img src="images/strip_3.png" class="strip">
                
             </div>
             </div>
             <div class="row mrgTop">
             <div class="col-lg-12 itemContainer">
                <div class="col-lg-12">
-                    <h1 class="UserTitle">Hi Zille Abbas from Singapore, how do you use your device?</h1>
+                    <h1 class="UserTitle">Hi <span class="userName"></span> from <span class="countryName"></span>, how do you use your device?</h1>
                </div> 
               
                 <div class="col-sm-4" align="center">
-                    <div class="mobility tablet mobilitySelect"></div>
+                    <div class="mobility tablet mobilitySelect" data-id="13"></div>
                </div> 
                <div class="col-sm-4" align="center">
-                    <div class="mobility desktop mobilitySelect"></div>
+                    <div class="mobility desktop mobilitySelect" data-id="15"></div>
                </div> 
                <div class="col-sm-4" align="center">
-                    <div class="mobility laptop mobilitySelect"></div>
+                    <div class="mobility laptop mobilitySelect" data-id="14"></div>
                </div>
                
                <div class="clearfix"></div>
@@ -242,36 +243,36 @@ connected than ever.</p>
             </div>        
             
     <div class="container marginTop leftPos screen-6">
-            <div class="row">
+            <div class="row prodLt">
             <div class="col-lg-12 itemContainer">
                     <div class="col-sm-3">
                             <label>Usage</label>
                             <div class="clearfix"></div>
-                            <select class="selectBox">
-                                <option value="work">Work</option>
-                                <option value="work">Play</option>
-                                <option value="work">Both</option>
+                            <select class="selectBox" id="usage">
+                                <option value="4">Work</option>
+                                <option value="5">Play</option>
+                                <option value="6">Both</option>
                             </select>
                     </div>
                     <div class="col-sm-3">
                             <label>Usage Detail</label>
                             <div class="clearfix"></div>
-                            <select class="selectBox">
-                                <option value="work">Work Low</option>
-                                <option value="work">Play Low</option>
-                                <option value="work">Both Low</option>
-                                <option value="work">Work High</option>
-                                <option value="work">Play High</option>
-                                <option value="work">Both High</option>
+                            <select class="selectBox"  id="usageDetial">
+                                <option value="7">Work Low</option>
+                                <option value="9">Play Low</option>
+                                <option value="11">Both Low</option>
+                                <option value="8">Work High</option>
+                                <option value="10">Play High</option>
+                                <option value="12">Both High</option>
                             </select>
                     </div>
                     <div class="col-sm-3">
                             <label>Mobility</label>
                             <div class="clearfix"></div>
-                            <select class="selectBox">
-                                <option value="work">Laptop</option>
-                                <option value="work">Desktop</option>
-                                <option value="work">Tablet</option>
+                            <select class="selectBox"  id="mobility">
+                                <option value="14">Laptop</option>
+                                <option value="15">Desktop</option>
+                                <option value="13">Tablet</option>
                             </select>
                     </div>
                     <div class="col-sm-3" align="center">
@@ -281,39 +282,8 @@ connected than ever.</p>
                     </div>
                     <div class="clearfix"></div>
                </div> 
-               <h1 class="UserTitle">Zille Abbas, we have found a few perfect matches for you</h1>
-               <div class="col-sm-4">
-                   <div class="col-sm-12">
-                        <div class="bubble">
-                            <h3>Meet the palm-sized tablet that brings friends together.</h3>
-                            <p>Introducing the Dell Venue 7. Gather your friends for HD wide-angle viewing and wireless connectivity in the palm of your hand.</p>
-                        </div>
-                   </div> 
-                    <div class="col-sm-12">
-                        <img src="images/product.png" width="100%;" class="prodImg">
-                   </div> 
-               </div>
-              <div class="col-sm-4">
-                   <div class="col-sm-12">
-                        <div class="bubble">
-                            <h3>Meet the palm-sized tablet that brings friends together.</h3>
-                            <p>Introducing the Dell Venue 7. Gather your friends for HD wide-angle viewing and wireless connectivity in the palm of your hand.</p>
-                        </div>
-                   </div> 
-                    <div class="col-sm-12">
-                        <img src="images/product.png" width="100%;"  class="prodImg prodSelect">
-                   </div> 
-               </div>
-               <div class="col-sm-4">
-                   <div class="col-sm-12">
-                        <div class="bubble">
-                            <h3>Meet the palm-sized tablet that brings friends together.</h3>
-                            <p>Introducing the Dell Venue 7. Gather your friends for HD wide-angle viewing and wireless connectivity in the palm of your hand.</p>
-                        </div>
-                   </div> 
-                    <div class="col-sm-12">
-                        <img src="images/product.png" width="100%;"  class="prodImg">
-                   </div> 
+               <h1 class="UserTitle"><span class="userName"></span>, we have found a few perfect matches for you</h1>
+               <div class="prodListings">
                </div>
                <div class="clearfix"></div>
                <div class="col-sm-12" align="center">
@@ -328,211 +298,37 @@ connected than ever.</p>
             </div>
             
     <div class="container marginTop leftPos screen-7">
-            <div class="row">
-               <div class="col-lg-4">
-               	<div class="col-sm-12 prodThumb">
-                   <div class="col-lg-12">
-                        <img src="images/product.png" width="100%;" class="prodImg">
-                   </div> 
-                    <div class="col-lg-12 prodDisp">
-                       <h1>Inspiron 14</h1>
-                       <p>Your wish is our design. Razor-thin design At just .6” thin, it’s sleeker, stronger and easier to carry...</p>
-                   		<button class="more"></button>
-                        <div class="clearfix"></div>
-                   </div> 
-                   </div>
-               </div>
-               <div class="col-lg-4">
-               	<div class="col-sm-12 prodThumb">
-                   <div class="col-lg-12">
-                        <img src="images/product.png" width="100%;" class="prodImg">
-                   </div> 
-                    <div class="col-lg-12 prodDisp">
-                       <h1>Inspiron 14</h1>
-                       <p>Your wish is our design. Razor-thin design At just .6” thin, it’s sleeker, stronger and easier to carry...</p>
-                   		<button class="more"></button>
-                        <div class="clearfix"></div>
-                   </div> 
-                   </div>
-               </div>
-               <div class="col-lg-4">
-               	<div class="col-sm-12 prodThumb">
-                   <div class="col-lg-12">
-                        <img src="images/product.png" width="100%;" class="prodImg">
-                   </div> 
-                    <div class="col-lg-12 prodDisp">
-                       <h1>Inspiron 14</h1>
-                       <p>Your wish is our design. Razor-thin design At just .6” thin, it’s sleeker, stronger and easier to carry...</p>
-                   		<button class="more"></button>
-                        <div class="clearfix"></div>
-                   </div> 
-                   </div>
-               </div>
-               <div class="clearProd"></div>
-               <div class="col-lg-4">
-               	<div class="col-sm-12 prodThumb">
-                   <div class="col-lg-12">
-                        <img src="images/product.png" width="100%;" class="prodImg">
-                   </div> 
-                    <div class="col-lg-12 prodDisp">
-                       <h1>Inspiron 14</h1>
-                       <p>Your wish is our design. Razor-thin design At just .6” thin, it’s sleeker, stronger and easier to carry...</p>
-                   		<button class="more"></button>
-                        <div class="clearfix"></div>
-                   </div> 
-                   </div>
-               </div>
-               <div class="col-lg-4">
-               	<div class="col-sm-12 prodThumb">
-                   <div class="col-lg-12">
-                        <img src="images/product.png" width="100%;" class="prodImg">
-                   </div> 
-                    <div class="col-lg-12 prodDisp">
-                       <h1>Inspiron 14</h1>
-                       <p>Your wish is our design. Razor-thin design At just .6” thin, it’s sleeker, stronger and easier to carry...</p>
-                   		<button class="more"></button>
-                        <div class="clearfix"></div>
-                   </div> 
-                   </div>
-               </div>
-               <div class="col-lg-4">
-               	<div class="col-sm-12 prodThumb">
-                   <div class="col-lg-12">
-                        <img src="images/product.png" width="100%;" class="prodImg">
-                   </div> 
-                    <div class="col-lg-12 prodDisp">
-                       <h1>Inspiron 14</h1>
-                       <p>Your wish is our design. Razor-thin design At just .6” thin, it’s sleeker, stronger and easier to carry...</p>
-                   		<button class="more"></button>
-                        <div class="clearfix"></div>
-                   </div> 
-                   </div>
-               </div>
-                <div class="clearProd"></div>
-               <div class="col-lg-4">
-               	<div class="col-sm-12 prodThumb">
-                   <div class="col-lg-12">
-                        <img src="images/product.png" width="100%;" class="prodImg">
-                   </div> 
-                    <div class="col-lg-12 prodDisp">
-                       <h1>Inspiron 14</h1>
-                       <p>Your wish is our design. Razor-thin design At just .6” thin, it’s sleeker, stronger and easier to carry...</p>
-                   		<button class="more"></button>
-                        <div class="clearfix"></div>
-                   </div> 
-                   </div>
-               </div>
-               <div class="col-lg-4">
-               	<div class="col-sm-12 prodThumb">
-                   <div class="col-lg-12">
-                        <img src="images/product.png" width="100%;" class="prodImg">
-                   </div> 
-                    <div class="col-lg-12 prodDisp">
-                       <h1>Inspiron 14</h1>
-                       <p>Your wish is our design. Razor-thin design At just .6” thin, it’s sleeker, stronger and easier to carry...</p>
-                   		<button class="more"></button>
-                        <div class="clearfix"></div>
-                   </div> 
-                   </div>
-               </div>
-               <div class="col-lg-4">
-               	<div class="col-sm-12 prodThumb">
-                   <div class="col-lg-12">
-                        <img src="images/product.png" width="100%;" class="prodImg">
-                   </div> 
-                    <div class="col-lg-12 prodDisp">
-                       <h1>Inspiron 14</h1>
-                       <p>Your wish is our design. Razor-thin design At just .6” thin, it’s sleeker, stronger and easier to carry...</p>
-                   		<button class="more"></button>
-                        <div class="clearfix"></div>
-                   </div> 
-                   </div>
-               </div>
-               <div class="clearfix clearProdBottom"></div>
+            <div class="row prodListingsAll">
+            </div>
+            <div class="clearfix clearProdBottom"></div>
                <div class="col-lg-12" align="right">
                		<a href="javascript:void(0);" class="backProducts"><img src="images/back.jpg"></a>
                </div>
-               
-            </div>
             </div>     
             
     <div class="container marginTop leftPos  screen-8">
             <div class="row">
-               <div class="col-lg-12 itemContainer">
-                       <div class="col-lg-6">
-                        	<img src="images/sliderTemp.jpg">
-                       </div> 
-                        <div class="col-lg-6 colorBlue ">
-                       			<h1>See life in amazing color</h1>
-                                <p>Our brightest and most versatile touch display — featuring 4th Gen Intel® Core™ processors , Windows 8 and an Adobe RGB Quad-HD panel with articulating stand.
-
-Streamlined design: With an integrated power supply and only one cable, you can create a clutter-free desktop.</p>
-								 <div class="col-lg-4">
-                                		<h4 class="price">$999.00</h4>
-                                </div>
-                                <div class="col-lg-8" align="right">
-                                	<img src="images/fb.jpg" class="fb">
-                                </div>
-                                <div class="clearfix"></div>
-                                <div class="col-lg-12 borderTop">
-                                     <div class="col-lg-6">
-                                        <button class="bkMatched"></button>
-                                     </div>
-                                     <div class="col-lg-6">
-                                        <button  class="completeProduct"></button>
-                                       </div>
-                                       <div class="clearfix"></div>
-                                </div>
-
-                       </div>  
-                       <div class="clearfix"></div>
-                       
-                       <div class="col-lg-12">
-                       	<div class="col-lg-6">
-                            <h1 class="subHeading">Technical Specification</h1>
-                            <ul class="noPadding listing">
-                            	<li class="colored">
-                                	<div class="col-sm-4">Operating System</div>
-                                    <div class="col-sm-8">Windows RT</div>
-                                    <div class="clearfix"></div>
-                                </li>
-                                <li class="">
-                                	<div class="col-sm-4">Operating System</div>
-                                    <div class="col-sm-8">Windows RT</div>
-                                    <div class="clearfix"></div>
-                                </li>
-                                <li class="colored">
-                                	<div class="col-sm-4">Operating System</div>
-                                    <div class="col-sm-8">Windows RT</div>
-                                    <div class="clearfix"></div>
-                                </li>
-                                <li class="">
-                                	<div class="col-sm-4">Operating System</div>
-                                    <div class="col-sm-8">Windows RT</div>
-                                    <div class="clearfix"></div>
-                                </li>
-                                <div class="clearfix"></div>
-                            </ul>
-                            <div class="clearfix"></div>
-                      	</div>
-                      <div class="clearfix"></div>
-                      </div>
-                      <div class="clearfix"></div>
-                  </div>
-                  
-                  <div class="clearfix"></div>
-                  
+               
+               <div class="productDetail" ></div>  
+             <div class="clearfix"></div>
                   
             </div>
             </div>           
             
             
   <div class="clearfix"></div>
-
+	<div align="center" class="preLoader">
+  <img src="./images/preloader.gif">
+  </div>
 
 <!--====================================end demo wrapper================================================-->
   <script src="js/jquery-1.8.2.min.js"></script>
   <script src="../admin/assets/js/bootstrap.min.js"></script>
+  <script src='../admin/assets/js/MobileServices.Web-1.0.0.min.js'></script>
+  
+  
+  
+  
   <script src="js/scripts.js"></script>
 
 </body>

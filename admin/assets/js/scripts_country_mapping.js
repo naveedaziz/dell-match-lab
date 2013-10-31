@@ -143,7 +143,7 @@ function StartApp(){
 						$.each(prodAttr, function(indexs,item) {
 									if(item != ''){
 										if(productMaps[indexs+'|'+ind]){
-											tableHtml += '<td data-col="'+indexs+'"  data-row="'+ind+'"><span class="glyphicon glyphicon-ok"></span></td>';
+											tableHtml += '<td data-col="'+indexs+'"  data-row="'+ind+'"  class="MapMe"><span class="glyphicon glyphicon-ok"></span></td>';
 										}else{
 											tableHtml += '<td data-col="'+indexs+'"  data-row="'+ind+'" class="MapMe"></td>';
 										}

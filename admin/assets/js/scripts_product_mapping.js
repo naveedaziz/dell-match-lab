@@ -161,7 +161,7 @@ function StartApp(){
 									if(itm != ''){
 										console.log(indx+'|'+ind);
 										if(productMaps[indx+'|'+ind]){
-											tableHtml += '<td data-col="'+indx+'"  data-row="'+ind+'"><span class="glyphicon glyphicon-ok"></span></td>';
+											tableHtml += '<td data-col="'+indx+'"  data-row="'+ind+'" class="MapMe"><span class="glyphicon glyphicon-ok"></span></td>';
 										}else{
 											tableHtml += '<td data-col="'+indx+'"  data-row="'+ind+'" class="MapMe"></td>';
 										}
