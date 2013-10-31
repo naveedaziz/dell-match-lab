@@ -320,27 +320,27 @@ padding: 15px;
 }
 .usage_detail{
 	background:url(../images/usage_detail.jpg) no-repeat;
-	width: 149px;
-	height: 152px;
+	width: 108px;
+	height: 108px;
 	margin-bottom:10px;
 	display: inline-block;
 }
 .workhigh{
 }
 .playhigh{
-	background-position: -154px 0;
+	background-position: -122px 0;
 }
 .bothhigh{
-	background-position: -316px 0;
+	background-position: -244px 0;
 }
 .worklow{
-	background-position: 0 -159px;
+	background-position: -469px 0;
 }
 .playlow{
-	background-position: -154px -159px;
+	background-position:  -593px 0;
 }
 .bothlow{
-	background-position: -316px -159px;
+	background-position:  -714px 0;
 }
 .mobility{
 	background:url(../images/mobility.jpg) no-repeat;
@@ -538,4 +538,7 @@ iframe{
 	height: 441px;
 	border: 0;
 	overflow: hidden;
+}
+.colorGrey{
+	color:#a0abb2;
 }
