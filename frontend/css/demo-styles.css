@@ -40,7 +40,10 @@
   font-variant: normal;
   text-transform: none;
   line-height: 1;
-  -webkit-font-smoothing: antialiased
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  
 }
 
 /* Use the following CSS code if you want to have a class per icon */
@@ -365,6 +368,11 @@ padding: 36px;
 	-webkit-transition: -webkit-transform 2s;
 	-ms-transform:: translateX(120%);
 	-ms-transition:: -ms-transform 2s;
+	transform: translateX(120%);
+	transition:: transform 2s;
+	transition-property: transform;
+	transition-duration: 2s;
+	
 	position: absolute;
 	left: 7%;
 	top: 15%;
@@ -379,6 +387,8 @@ padding: 36px;
 }
 .mainBg,footer{
 	-webkit-transition:-webkit-transform 2s;
+	-ms-transition:-ms-transform 2s;
+	transition:transform 2s;
 }
 .selectBox{
 	width:100%;
