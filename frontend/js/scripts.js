@@ -20,7 +20,12 @@ function GetApp(){
 		StartApp();
 	});
 }
+function swapClass(hide,show){
+		$('.'+hide).addClass('hideMe');
+		$('.'+show).removeClass('hideMe');
+	}
 function StartApp(){	
+sendEmail();
 	var client = new WindowsAzure.MobileServiceClient(AppURL, AppId),
 		ClientTable = client.getTable('clients');
 		ProductTable = client.getTable('product');
@@ -104,6 +109,7 @@ function StartApp(){
 								}, handleError).done(function(){
 									$('.preLoader').hide();
 									$('.prodLt').show();
+									$('.leftPos2').fadeOut();
 									translate('.screen-5','-220%');
 									$('.screen-6').css('height','auto');
 									$('.screen-6').css('overflow','auto');
@@ -173,6 +179,7 @@ function StartApp(){
 		$('.screen-1').css('height','auto');
 		$('.screen-1').css('overflow','auto');
 		translate('.screen-1','0%');
+		setTimeout("$('.leftPos2').fadeIn()",1000);
 		$("html, body").animate({ scrollTop: "0" });
 	});
 	$('.formSubmit').on('click',function(){
@@ -185,6 +192,7 @@ function StartApp(){
 		$('.screen-3').css('height','auto');
 		$('.screen-3').css('overflow','auto');
 		translate('.screen-3','0%');
+		setTimeout('swapClass("st1","st2");',1000);
 		$("html, body").animate({ scrollTop: "0" });
 	});
 	$('.usageSelect').on('click',function(){
@@ -194,6 +202,7 @@ function StartApp(){
 		$('.screen-4').css('height','auto');
 		$('.screen-4').css('overflow','auto');
 		translate('.screen-4','0%');
+		setTimeout('swapClass("st2","st3");',1000);
 		$("html, body").animate({ scrollTop: "0" });
 	});
 	$('.usage_detailSelect').on('click',function(){
@@ -203,6 +212,7 @@ function StartApp(){
 		$('.screen-5').css('height','auto');
 		$('.screen-5').css('overflow','auto');
 		translate('.screen-5','0%');
+		setTimeout('swapClass("st3","st4");',1000);
 		$("html, body").animate({ scrollTop: "0" });
 	});
 	$('.showMatched').on('click',function(){
@@ -218,6 +228,8 @@ function StartApp(){
 		createHtmlForProducts();
 		console.log(dataAttributes);
 	});
+	
+	
 	buttonClicks();
 	
 	function translate(item,val){
@@ -235,7 +247,11 @@ function StartApp(){
 													appendHtml += '<div class="col-sm-12">';
 													appendHtml += '<div class="bubble"  data-id="'+item.id+'">';
 													appendHtml += '<h3>'+item.name+'</h3>';
-													appendHtml += '<p>'+item.short_description+'</p>';
+													var disp = item.short_description;
+													appendHtml += '<p>'+disp.substr(0,300)+'...</p>';
+													//appendHtml += '<p>'+item.short_description+'</p>';
+													appendHtml += '<button class="more_list"  data-id="'+item.id+'"></button>';
+													appendHtml += '<div class="clearfix"></div>';
 													appendHtml += '</div>';
 													appendHtml += '</div> ';
 													appendHtml += '<div class="col-sm-12">';
@@ -266,7 +282,9 @@ function StartApp(){
 													appendHtml += '</div> ';
 													appendHtml += '<div class="col-lg-12 prodDisp">';
 													appendHtml += '<h1 data-id="'+item.id+'">'+item.name+'</h1>';
-													appendHtml += '<p>'+item.short_description+'</p>';
+													var disp = item.short_description;
+													appendHtml += '<p>'+disp.substr(0,300)+'...</p>';
+													//appendHtml += '<p>'+item.short_description+'</p>';
 													appendHtml += '<button class="more"  data-id="'+item.id+'"></button>';
 													appendHtml += '<div class="clearfix"></div>';
 													appendHtml += '</div> ';
@@ -315,6 +333,10 @@ function StartApp(){
 	$('.more').on('click',function(){
 		productDetail($(this).attr('data-id'),2);
 	});
+	$('.more_list').on('click',function(){
+		productDetail($(this).attr('data-id'),1);
+	});
+	
 	$('.bkMatched').on('click',function(){
 		translate('.screen-6','0%');
 		translate('.screen-8','220%');
@@ -329,6 +351,14 @@ function StartApp(){
 		$("html, body").animate({ scrollTop: "0" });
 		
 	});
+	
+	$('.sliderImgThumb').on('click',function(){
+		$('.sliderImg').attr('src',$(this).attr('src'));		
+	});
+		$('.emailMatches').on('click',function(){
+			$('.preLoaderEmail').show();		
+		});
+	
 	}
 	
 	
@@ -368,11 +398,35 @@ function StartApp(){
 				var HtmlAppend = '';
 			HtmlAppend += '<div class="col-lg-12 itemContainer">';
 			HtmlAppend += '<div class="col-lg-6">';
-			HtmlAppend += '<img src="images/sliderTemp.jpg">';
+			HtmlAppend += '<div class="col-lg-12">';
+			var prodImage = JSON.parse(item.product_images);
+			$.each(prodImage,function(id,itm){
+				if(itm.defaults == true){
+					HtmlAppend += '<img src="../admin/'+itm.img+'"  data-id="'+item.id+'" width="100%;" class="sliderImg">';
+				}
+			});
+			HtmlAppend += '</div>';
+			HtmlAppend += '<div class="col-lg-12">';
+			var prodImage = JSON.parse(item.product_images);
+			$.each(prodImage,function(id,itm){
+				if(itm.defaults == true){
+					HtmlAppend += '<img src="../admin/'+itm.img+'" class="sliderImgThumb">';
+				}
+			});
+			var prodImage = JSON.parse(item.product_images);
+			$.each(prodImage,function(id,itm){
+				if(itm.defaults != true){
+					HtmlAppend += '<img src="../admin/'+itm.img+'" class="sliderImgThumb">';
+				}
+			});
+			HtmlAppend += '<div class="clearfix"></div>';
+			HtmlAppend += '</div>';
 			HtmlAppend += '</div> ';
 			HtmlAppend += '<div class="col-lg-6 colorBlue ">';
+			HtmlAppend += '<div class="col-lg-12">';
 			HtmlAppend += '<h1>'+item.name+'</h1>';
 			HtmlAppend += '<p>'+item.short_description+'</p>';
+			HtmlAppend += '</div>';
 			HtmlAppend += '<div class="col-lg-4">';
 			HtmlAppend += '<h4 class="price">$'+item.start_price+'</h4>';
 			HtmlAppend += '</div>';
@@ -393,7 +447,7 @@ function StartApp(){
 			HtmlAppend += '<div class="clearfix"></div>	';
 			HtmlAppend += '<div class="col-lg-12">';
 			HtmlAppend += '<div class="col-lg-6">';
-			HtmlAppend += '<h1 class="subHeading">Technical Specification</h1>';
+			HtmlAppend += '<h1 class="subHeading">Features</h1>';
 			HtmlAppend += '<ul class="noPadding listing">';
 			var ct = 1;
 			var prdSpec = JSON.parse(item.product_specifications);
@@ -448,5 +502,10 @@ function StartApp(){
 	}
 	
 		$('.preLoader').hide();
+}
+
+function sendEmail(){
+	// Create the email object first, then add the properties.
+	
 }
 

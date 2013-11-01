@@ -1,34 +1,4 @@
-@font-face {
-  font-family: 'Lato';
-  font-style: normal;
-  font-weight: 100;
-  src: local('Lato Hairline'), local('Lato-Hairline'), url(http://themes.googleusercontent.com/static/fonts/lato/v6/boeCNmOCCh-EWFLSfVffDg.woff) format('woff')
-}
-
-@font-face {
-  font-family: 'Lato';
-  font-style: normal;
-  font-weight: 300;
-  src: local('Lato Light'), local('Lato-Light'), url(http://themes.googleusercontent.com/static/fonts/lato/v6/KT3KS9Aol4WfR6Vas8kNcg.woff) format('woff')
-}
-
-@font-face {
-  font-family: 'Lato';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Lato Regular'), local('Lato-Regular'), url(http://themes.googleusercontent.com/static/fonts/lato/v6/9k-RPmcnxYEPm8CNFsH2gg.woff) format('woff')
-}
-
-@font-face {
-  font-family: 'icomoon';
-  src: url('../fonts/icomoon.eot');
-  src: url('../fonts/icomoon.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/icomoon.woff') format('woff'),
-    url('../fonts/icomoon.ttf') format('truetype'),
-    url('../fonts/icomoon.svg#icomoon') format('svg');
-  font-weight: normal;
-  font-style: normal
-}
+@import url("../fonts/stylesheet.css");
 
 /* Use the following CSS code if you want to use data attributes for inserting your icons */
 
@@ -115,7 +85,7 @@ you can use the generic selector below, but it's slower:
 }
 
 html {
- 
+  height: 100%;
   overflow-y: scroll;
   overflow-x: hidden
 }
@@ -126,6 +96,7 @@ body {
   font-weight: 300;
   font-size: 16px;
   position: absolute;
+  background-attachment: fixed !important;
 
 }
 
@@ -147,18 +118,20 @@ header .logoIcon{
 }
 .header_title{
 	font-size:30px;
-	padding-top: 3px;
+	padding-top: 8px;
 	float:left;
 	padding-right:12px;
 	color:white;
 	float:left;
 	margin-left:10px;
+	font-family:'museo300' 'museo500' 'museo700';
 }
 .header_sub_heading{
 	font-size:20px;
 	color:white;
-	padding-top: 8px;
+	padding-top: 12px;
 	float:right;
+	font-family:'museo300';
 	
 }
 .ContentImg{
@@ -187,30 +160,27 @@ footer{
 }
 
 .start_button{
-	background: url(../images/play.png) scroll 21px 46px no-repeat;
-	padding: 30px;
-	background-color: #e2e6ea;
-	font-size: 25px;
-	padding-left: 104px;
-	border-radius: 25px;
-	margin:0%;
-	margin-top: 61px;
+	background: url(../images/start.png) bottom no-repeat;
+	width: 248px;
+	height: 147px;
+	border: 0;
+	outline: 0;
+	margin-top: 35px;
 	margin-bottom: 0;
-	padding-top: 62px;
-	padding-bottom: 41px;
-	cursor:pointer;
-	max-width:253px;
-	
-	
+	cursor: pointer;
+	padding: 0;
+	border: 0;
 	
 }
+
 .noPadding{
 	padding:0;
 }
 .footerText{
-	margin-top: 83px;
+	margin-top: 54px;
 	color:#1b82c2;
 	line-height: 20px;
+	font-family:'museo300';
 
 }
 footer h5{
@@ -218,11 +188,12 @@ footer h5{
 	text-align: center;
 }
 .rightFooter{
-	margin-top: 66px;
+	margin-top: 42px;
 }
 footer p{
 	font-size:14px;
 	color:#9aa0a6;
+	font-family:'museo300';
 }
 .footerStrip{
 	padding-left:20px;
@@ -235,10 +206,13 @@ padding: 15px;
 .itemTitle{
 	margin-top: 40px;
 	color:#1b82c2;
+	font-family:'museo300';
+	font-weight:bold;
 
 }
 .itemTitleP{
 	color:#1b82c2;
+	font-family:'museo500';
 }
 .borderleft{
 	border-left:1px solid #dfe1e1;
@@ -254,6 +228,7 @@ padding: 15px;
 }
 .formName fieldset{
 	margin-bottom: 28px;
+	font-family:'museo500';
 }
 .formName label{
 	
@@ -285,7 +260,7 @@ padding: 15px;
 	margin-top: 10px;
 	color:#1b82c2;
 	margin-bottom:40px;
-
+	font-family:'museo500' 'museo700';
 }
 
 .indonsia{
@@ -383,6 +358,31 @@ padding: 15px;
 	padding-bottom:5%;
 	
 }
+.leftPos2{
+	-webkit-transform: translateX(0%);
+	-webkit-transition: -webkit-transform 1s;
+	-ms-transform:: translateX(0%);
+	-ms-transition:: -ms-transform 1s;
+	transform: translateX(0%);
+	transition:: transform 1s;
+	transition-property: transform;
+	transition-duration: 1s;
+	
+	position: absolute;
+	left: 7%;
+	top: 15%;
+	width:100%;
+	display:none;
+	overflow:hidden;
+	padding-bottom:5%;
+	
+}
+.op0{
+	opacity:0;
+}
+.hideMe{
+	display:none;
+}
 .usage_detailSelect,.usageSelect,.counterSelect{
 	cursor:pointer;
 }
@@ -419,9 +419,24 @@ color: white;
 }
 .bubble h3{
 	margin: 0;
-margin-bottom: 15px;
+	margin-bottom: 15px;
+	font-family:'museo500';
 }
-
+bubble p{
+	font-family:'museo300';
+}
+.prodDisp h1{
+	font-family:'museo500';
+}
+.prodDisp h1{
+	font-family:'museo300';
+}
+.colorBlue h1{
+	font-family:'museo700';
+}
+.colorBlue p{
+	font-family:'museo300';
+}
 .bubble:after 
 {
 	content: "";
@@ -450,6 +465,17 @@ margin-bottom: 15px;
 	margin-top: -1%;
 	margin-bottom: 2%;
 }
+.more_list{
+background: url(../images/more.png);
+width: 81px;
+height: 19px;
+border: none;
+outline: none;
+float: right;
+margin-right: -4.3%;
+margin-top: -1%;
+margin-bottom: 2%;
+}
 .prodThumb{
 	background:#FFF;
 	border-radius:10px;
@@ -460,6 +486,7 @@ margin-bottom: 15px;
 	padding:10px;
 	background:#1b82c2;
 	color:white;
+	min-height: 304px;
 }
 .clearProd{
 	width:100%;
@@ -493,6 +520,7 @@ margin-bottom: 15px;
 	font-size:33px;
 	color:#66ab2b;
 	font-weight:bold;
+	font-family:'museo700';
 }
 .fb{
 	margin-top: 15px;
@@ -501,6 +529,9 @@ margin-bottom: 15px;
 	border-top:1px solid #e4e5e5;
 	margin-top:5%;
 	padding-top:5%;
+}
+.col-sm-4,.col-sm-8{
+	font-size: 13px;
 }
 .colored{
 	background:#dbecf5;
@@ -527,6 +558,13 @@ margin-bottom: 15px;
 	
 	
 }
+.preLoaderEmail{
+	position:fixed; left:0;  width:100%; z-index:9999;bottom:0;
+	background:#FFF;
+	border-top:2px solid #e4e5e5;
+	color:#66ab2b;
+	display:none;
+}
 .prodLt{
 	display:none;
 }
@@ -541,4 +579,21 @@ iframe{
 }
 .colorGrey{
 	color:#a0abb2;
+	font-family:'museo300';
+	padding-left: 15px;
+}
+.paddingLeft{
+	padding-left: 4%;
+}
+.col-sm-3 label{
+	font-family:'museo300';
+}
+.sliderImgThumb{
+	width: 25%;
+	border: 1px solid #dee5e9;
+	padding: 1px;
+	cursor:pointer;
+	margin:2px;
+	float:left;
+	
 }

@@ -39,7 +39,7 @@
     </div>
  </div>
   <div class="row">
-  			<footer>
+  			<footer class="bgGradient">
   <div class="container">
   	<div class="row">
  <div class="col-lg-12">
@@ -51,7 +51,7 @@ the Dell family of products</h4>
 to the way you work, play and live.</p>
           </div>
           <div class="col-lg-4" align="center">
-                        <h1 class="start_button">Start Here</h1>
+                        <button class="start_button"></button>
           </div>
           <div class="col-lg-4">
           <div class="row rightFooter">
@@ -72,11 +72,22 @@ connected than ever.</p>
   </div>
   </footer>
    </div>
+   <div class="container marginTop leftPos2  screen-0">
+      <div class="row">
+           <div class="col-lg-12"  align="center">
+                <img src="images/strip.png" class="strip st1">
+                <img src="images/strip_1.png" class="strip st2 hideMe">
+                <img src="images/strip_2.png" class="strip st3 hideMe">
+                <img src="images/strip_3.png" class="strip st4 hideMe">
+               
+          </div>
+      </div>
+  </div>
   
 	<div class="container marginTop leftPos screen-1">
       <div class="row">
            <div class="col-lg-12"  align="center">
-                <img src="images/strip.png" class="strip">
+                <img src="images/strip.png" class="strip op0">
                
           </div>
       </div>
@@ -91,12 +102,12 @@ connected than ever.</p>
                 <fieldset>
                 	<label>Your Name</label>
                     <div class="clearfix"></div>
-                	<input required  type="text" placeholder="Your Name" id="userName"> 
+                	<input required   type="text" placeholder="John Doe" id="userName"> 
                  </fieldset>
                  <fieldset>
                 	<label>Your Email</label>
                     <div class="clearfix"></div>
-                	<input required  type="email" placeholder="Your Email" id="userEmail"> 
+                	<input required   type="email" placeholder="johndoe@dell.com" id="userEmail"> 
                  </fieldset>
                  <button class="formSubmit"></button>
                  </form>
@@ -110,7 +121,7 @@ connected than ever.</p>
     <div class="container marginTop  leftPos screen-2">
             <div class="row">
             <div class="col-lg-12"  align="center">
-                <img src="images/strip.png" class="strip">
+                <img src="images/strip.png" class="strip op0">
                 
             </div>
             </div>
@@ -149,7 +160,7 @@ connected than ever.</p>
     <div class="container marginTop  leftPos screen-3">
             <div class="row">
             <div class="col-lg-12"  align="center">
-                <img src="images/strip_1.png" class="strip">
+                <img src="images/strip_1.png" class="strip op0">
                 
             </div>
             </div>
@@ -178,7 +189,7 @@ connected than ever.</p>
     <div class="container marginTop  leftPos screen-4">
             <div class="row">
             <div class="col-lg-12" align="center">
-                <img src="images/strip_2.png" class="strip">
+                <img src="images/strip_2.png" class="strip op0">
                 
             </div>
             </div>
@@ -199,7 +210,7 @@ connected than ever.</p>
                             <div class="usage_detail bothhigh usage_detailSelect" data-id="12"></div>
                        </div>
                </div>	
-               <div class="col-lg-6 borderleft">
+               <div class="col-lg-6 borderleft paddingLeft">
                <p  class="colorGrey">I am a low-end user</p>
                    <div class="col-sm-4">
                         <div class="usage_detail worklow usage_detailSelect" data-id="7"></div>
@@ -221,7 +232,7 @@ connected than ever.</p>
     <div class="container marginTop  leftPos screen-5">
             <div class="row">
             <div class="col-lg-12"  align="center">
-                <img src="images/strip_3.png" class="strip">
+                <img src="images/strip_3.png" class="strip op0">
                
             </div>
             </div>
@@ -295,7 +306,7 @@ connected than ever.</p>
                         <img src="images/prod_bottom.jpg" class="prodBottom" usemap="#Map" border="0" />
                             <map name="Map" id="Map">
                              <area shape="rect" class="completeSelect" coords="2,2,325,31" href="javascript:void(0);" />
-                             <area shape="rect" coords="330,4,533,32" href="javascript:void(0);" />
+                             <area shape="rect" class="emailMatches" coords="330,4,533,32" href="javascript:void(0);" />
                             </map>
                    </div> 
                
@@ -325,15 +336,16 @@ connected than ever.</p>
 	<div align="center" class="preLoader">
   <img src="./images/preloader.gif">
   </div>
+  <div align="center" class="preLoaderEmail">
+  <h4>Sending Email....</h4>
+           <img src="./images/preloader.gif">
+  			
+  </div>
 
 <!--====================================end demo wrapper================================================-->
   <script src="js/jquery-1.8.2.min.js"></script>
   <script src="../admin/assets/js/bootstrap.min.js"></script>
   <script src='../admin/assets/js/MobileServices.Web-1.0.0.min.js'></script>
-  
-  
-  
-  
   <script src="js/scripts.js"></script>
 
 </body>
