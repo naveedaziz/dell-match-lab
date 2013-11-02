@@ -430,6 +430,10 @@ bubble p{
 }
 .prodDisp h1{
 	font-family:'museo300';
+	font-size: 30px;
+}
+.prodDisp p{
+	font-size: 13px;
 }
 .colorBlue h1{
 	font-family:'museo700';
@@ -486,7 +490,7 @@ margin-bottom: 2%;
 	padding:10px;
 	background:#1b82c2;
 	color:white;
-	min-height: 304px;
+	min-height: 229px;
 }
 .clearProd{
 	width:100%;

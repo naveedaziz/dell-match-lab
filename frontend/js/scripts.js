@@ -7,7 +7,10 @@ var counter = 1;
 var productList = {};
 var ProductMapping = {};
 var CountryMapping = {};
+var ClickedItem = '';
+$('.ContentImg').css('min-height',$(window).height() / 1.67+'px');
 function GetApp(){
+	
 	/*$(document.body).on('click', '#addCatagory', function() {
 			//$('#cityName').html('');
 			//$('#cityId').val('');
@@ -233,9 +236,19 @@ sendEmail();
 	buttonClicks();
 	
 	function translate(item,val){
+		if(val == '0%'){
+			$(item).css('height','auto');
+			$(item).css('overflow','auto');
+		}
 		$(item).css('-webkit-transform','translateX('+val+')');
 		$(item).css('-ms-transform','translateX('+val+')');
 		$(item).css('transform','translateX('+val+')');
+		
+		console.log(val);
+		if(val == '-220%' || val == '220%'){
+			ClickedItem = item;
+			setTimeout("$(ClickedItem).css('height','0');$(ClickedItem).css('overflow','hidden');console.log(ClickedItem);",1000);
+		}
 	}						
 	function createProdMatch(dts){
 		$.each(productList, function(index,item) {
@@ -431,7 +444,10 @@ sendEmail();
 			HtmlAppend += '<h4 class="price">$'+item.start_price+'</h4>';
 			HtmlAppend += '</div>';
 			HtmlAppend += '<div class="col-lg-8" align="right">';
-			HtmlAppend += '<img src="images/fb.jpg" class="fb">';
+			HtmlAppend += '<div class="fb">';
+			HtmlAppend += '<div class="col-lg-4"><iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fdell-match-lab.azurewebsites.net%2Ffrontend%2F&amp;width&amp;height=21&amp;colorscheme=light&amp;layout=button_count&amp;action=like&amp;show_faces=true&amp;send=false&amp;appId=645025702216038" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:21px;" allowTransparency="true"></iframe></div>';
+			HtmlAppend += '<div class="col-lg-4"><iframe allowtransparency="true" frameborder="0" scrolling="no"  src="https://platform.twitter.com/widgets/tweet_button.html" style="width:130px; height:20px;"></iframe></div>'	;
+			HtmlAppend += '</div>';
 			HtmlAppend += '</div>';
 			HtmlAppend += '<div class="clearfix"></div>';
 			HtmlAppend += '<div class="col-lg-12 borderTop">';

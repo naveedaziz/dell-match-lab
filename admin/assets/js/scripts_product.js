@@ -148,8 +148,16 @@ function StartApp(){
 			}}
 		});
 		$(document.body).on('click', '#addProduct', function() {
-			$('#cityName').html('');
-			$('#cityId').val('');
+			$('#catagory').val('');
+			$('#name').val('');
+			$('#short_description').val('');
+			$('#start_price').val('');
+			$('#video_url').val('');
+			$('#ProductImages').html('');
+			$('#tablesSpec').children('.panel-body').html('');
+			$('#3dImages').val('');
+			$('#status').val('');
+			$('#productId').val('');			
 			$('#myModal').modal();
 		});
 		
