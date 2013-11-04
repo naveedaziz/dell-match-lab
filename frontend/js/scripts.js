@@ -197,6 +197,12 @@ sendEmail();
 		translate('.screen-3','0%');
 		setTimeout('swapClass("st1","st2");',1000);
 		$("html, body").animate({ scrollTop: "0" });
+		var theNewRow = {
+							id: parseInt(UserId),
+							country: $(this).attr('data-name'),
+							country_id: $(this).attr('data-id')										
+						};
+		ClientTable.update(theNewRow);
 	});
 	$('.usageSelect').on('click',function(){
 		dataAttributes['usage'] = $(this).attr('data-id');
@@ -384,7 +390,10 @@ sendEmail();
 			
 			var theNewRow = {
 				name: name,
-				email: email				
+				email: email,
+				country: '',
+				country_id: '',
+				dated: Date(),				
 			};
 			ClientTable.insert(theNewRow).then(getUserInfo, handleError).then(function(){
 							$('.preLoader').hide();
