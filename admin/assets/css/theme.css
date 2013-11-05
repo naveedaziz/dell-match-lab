@@ -6297,3 +6297,8 @@ legend {
 	cursor:pointer;
 }
 
+.formhead{
+	background: rgba(23, 53, 85, 0.81);
+	padding: 10px;
+	font-size: 20px;
+}
