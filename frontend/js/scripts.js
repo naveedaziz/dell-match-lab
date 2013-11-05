@@ -214,6 +214,33 @@ sendEmail();
 		setTimeout('swapClass("st2","st3");',1000);
 		$("html, body").animate({ scrollTop: "0" });
 	});
+	$('.BkButton').on('click',function(){
+		if($(this).attr('data-id') == 1){
+			translate('.screen-3','220%');
+			$('.screen-3').css('height','auto');
+			$('.screen-3').css('overflow','auto');
+			translate('.screen-2','0%');
+			setTimeout('swapClass("st2","st1");',1000);
+			$("html, body").animate({ scrollTop: "0" });
+		}
+		if($(this).attr('data-id') == 2){
+			translate('.screen-4','220%');
+			$('.screen-4').css('height','auto');
+			$('.screen-4').css('overflow','auto');
+			translate('.screen-3','0%');
+			setTimeout('swapClass("st3","st2");',1000);
+			$("html, body").animate({ scrollTop: "0" });
+		}
+		if($(this).attr('data-id') == 3){
+			translate('.screen-5','220%');
+			$('.screen-5').css('height','auto');
+			$('.screen-5').css('overflow','auto');
+			translate('.screen-4','0%');
+			setTimeout('swapClass("st4","st3");',1000);
+			$("html, body").animate({ scrollTop: "0" });
+		}
+	});
+	
 	$('.usage_detailSelect').on('click',function(){
 		dataAttributes['usageDetail'] = $(this).attr('data-id');
 		$('#usageDetial').val(dataAttributes['usageDetail']);

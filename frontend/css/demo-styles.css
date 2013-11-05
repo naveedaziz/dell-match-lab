@@ -416,6 +416,7 @@ background: #1b82c2;
 border-radius: 10px;
 padding: 4%;
 color: white;
+min-height: 246px;
 }
 .bubble h3{
 	margin: 0;
@@ -490,7 +491,7 @@ margin-bottom: 2%;
 	padding:10px;
 	background:#1b82c2;
 	color:white;
-	min-height: 229px;
+	min-height: 263px;
 }
 .clearProd{
 	width:100%;
@@ -600,4 +601,11 @@ iframe{
 	margin:2px;
 	float:left;
 	
+}
+.BkButton{
+	background:url(../images/backImg.jpg) no-repeat;
+	border: 0;
+	outline: 0;
+	width: 78px;
+	height:28px;
 }
