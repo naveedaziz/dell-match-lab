@@ -177,28 +177,24 @@ function StartApp(){
 			 var lengths = 0;
 			$.each(CountryMaps,function(ind,itms){
 					if(itms != ''){
-						tableHtml += '<tr class="girdList">';
-						tableHtml += '<td><h3>'+itms['country']+'</h3></td>';
+						var CountryName = itms['country'];
+						var userTotal = itms['count'];
 						if(CountryMapsData[ind]){
-							if(itms['count'] >= parseInt(CountryMapsData[ind]['count'])){
-								tableHtml += '<td>'+itms['count']+'</td>';
-							}else{
-								tableHtml += '<td>'+CountryMapsData[ind]['count']+'</td>';
-							}
+							var SubTotal = CountryMapsData[ind]['count'];
 						}else{
-								tableHtml += '<td>'+itms['count']+'</td>';
+							var SubTotal = 0;
 						}
-						if(CountryMapsData[ind]){
-							tableHtml += '<td>'+CountryMapsData[ind]['count']+'</td>';
-							var remaining = parseInt(itms['count']) - parseInt(CountryMapsData[ind]['count']);
-							if(remaining < 0){
-								tableHtml += '<td>'+(-1)*remaining+'</td>';
-							}else{
-								tableHtml += '<td>'+remaining+'</td>';
-							}
+						
+						tableHtml += '<tr class="girdList">';
+						tableHtml += '<td><h3>'+CountryName+'</h3></td>';
+						if(userTotal >= SubTotal){
+							tableHtml += '<td><h3>'+userTotal+'</h3></td>';
+							tableHtml += '<td><h3>'+SubTotal+'</h3></td>';
+							tableHtml += '<td><h3>'+parseInt(parseInt(userTotal) - parseInt(SubTotal))+'</h3></td>';
 						}else{
-							tableHtml += '<td>0</td>';
-							tableHtml += '<td>'+itms['count']+'</td>';
+							tableHtml += '<td><h3>'+SubTotal+'</h3></td>';
+							tableHtml += '<td><h3>'+userTotal+'</h3></td>';
+							tableHtml += '<td><h3>'+parseInt(parseInt(SubTotal) - parseInt(userTotal))+'</h3></td>';
 						}
 						
 						tableHtml += '</tr>';
@@ -250,9 +246,9 @@ function StartApp(){
 						$.each(prodAttr, function(indexs,item) {
 									if(item != ''){
 										if(productMaps[indexs+'|'+ind]){
-											tableHtml += '<td data-col="'+indexs+'"  data-row="'+ind+'">'+productMaps[indexs+'|'+ind]+'</td>';
+											tableHtml += '<td data-col="'+indexs+'"  data-row="'+ind+'"><h3>'+productMaps[indexs+'|'+ind]+'</h3></td>';
 										}else{
-											tableHtml += '<td data-col="'+indexs+'"  data-row="'+ind+'">0</td>';
+											tableHtml += '<td data-col="'+indexs+'"  data-row="'+ind+'"><h3>0</h3></td>';
 										}
 									}
 								
