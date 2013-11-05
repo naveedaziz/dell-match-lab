@@ -179,11 +179,23 @@ function StartApp(){
 					if(itms != ''){
 						tableHtml += '<tr class="girdList">';
 						tableHtml += '<td><h3>'+itms['country']+'</h3></td>';
-						tableHtml += '<td>'+itms['count']+'</td>';
+						if(CountryMapsData[ind]){
+							if(itms['count'] >= parseInt(CountryMapsData[ind]['count'])){
+								tableHtml += '<td>'+itms['count']+'</td>';
+							}else{
+								tableHtml += '<td>'+CountryMapsData[ind]['count']+'</td>';
+							}
+						}else{
+								tableHtml += '<td>'+itms['count']+'</td>';
+						}
 						if(CountryMapsData[ind]){
 							tableHtml += '<td>'+CountryMapsData[ind]['count']+'</td>';
 							var remaining = parseInt(itms['count']) - parseInt(CountryMapsData[ind]['count']);
-							tableHtml += '<td>'+remaining+'</td>';
+							if(remaining < 0){
+								tableHtml += '<td>'+(-1)*remaining+'</td>';
+							}else{
+								tableHtml += '<td>'+remaining+'</td>';
+							}
 						}else{
 							tableHtml += '<td>0</td>';
 							tableHtml += '<td>'+itms['count']+'</td>';
