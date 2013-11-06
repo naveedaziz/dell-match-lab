@@ -88,7 +88,7 @@ function StartApp(){
 							html +='<td> '+item.name+'</td>';
 							html +='<td> '+item.start_price+'</td>';
 							html +='<td> '+statusProd[item.status]+'</td>';							
-							html +="<td><span class='col-lg-1'><span class='glyphicon glyphicon-edit edit' data-id='"+item.id+"' data-catagory='"+item.catagory+"' data-name='"+item.name+"' data-short_description='"+item.short_description+"' data-start_price='"+item.start_price+"' data-video_url='"+item.video_url+"' data-status='"+item.status+"' data-product_specifications='"+item.product_specifications+"' data-product_images='"+item.product_images+"' data-Product_3dimages='"+item.product_3dimages+"'></span></span><span class='col-lg-1'><span class='delete glyphicon glyphicon-remove-circle' data-id='"+item.id+"'></span></span></td>";
+							html +="<td><span class='col-lg-1'><span class='glyphicon glyphicon-edit edit' data-id='"+item.id+"' data-catagory='"+item.catagory+"' data-name='"+encodeURIComponent(escape(item.name))+"' data-short_description='"+encodeURIComponent(escape(item.short_description))+"' data-start_price='"+item.start_price+"' data-video_url='"+encodeURIComponent(escape(item.video_url))+"' data-status='"+item.status+"' data-product_specifications='"+encodeURIComponent(escape(item.product_specifications))+"' data-product_images='"+encodeURIComponent(escape(item.product_images))+"' data-Product_3dimages='"+encodeURIComponent(escape(item.product_3dimages))+"'></span></span><span class='col-lg-1'><span class='delete glyphicon glyphicon-remove-circle' data-id='"+item.id+"'></span></span></td>";
 							html +='</tr>';
 							console.log(item.product_specifications);
 						return  $(html)														
@@ -106,25 +106,25 @@ function StartApp(){
 		
 		$(document.body).on('click', '.edit', function() {
 			$('#cityId').val($(this).attr('data-id'));
-			$('#cityName').val($(this).attr('data-name'));
+			$('#cityName').val(unescape(decodeURIComponent($(this).attr('data-name'))));
 			$('#catagory').val($(this).attr('data-catagory'));
-			$('#name').val($(this).attr('data-name'));
-			$('#short_description').val($(this).attr('data-short_description'));
+			$('#name').val(unescape(decodeURIComponent($(this).attr('data-name'))));
+			$('#short_description').val(unescape(decodeURIComponent($(this).attr('data-short_description'))));
 			$('#start_price').val($(this).attr('data-start_price'));
-			$('#video_url').val($(this).attr('data-video_url'));
+			$('#video_url').val(unescape(decodeURIComponent($(this).attr('data-video_url'))));
 			$('#status').val($(this).attr('data-status'));
 			$('#tablesSpec .panel-body').html('');
-			var ProdImg = JSON.parse($(this).attr('data-product_images'));
+			var ProdImg = JSON.parse(unescape(decodeURIComponent($(this).attr('data-product_images'))));
 			$('#ProductImages').html('');
 			$.each(ProdImg,function(index,item){
 				 appendImagefile(item.img,'#ProductImages',item.defaults,'');
 			});
-			var Prod3dImg = JSON.parse($(this).attr('data-product_3dimages'));
+			var Prod3dImg = JSON.parse(unescape(decodeURIComponent($(this).attr('data-product_3dimages'))));
 			$('#3dImages').html('');
 			$.each(Prod3dImg,function(index,item){
 				 appendImagefile(item.img,'#3dImages','','');
 			});
-			var ProdSpecification = JSON.parse($(this).attr('data-product_specifications'));
+			var ProdSpecification = JSON.parse(unescape(decodeURIComponent($(this).attr('data-product_specifications'))));
 			$.each(ProdSpecification,function(index,item){
 				 createOtherSpec(item.label,item.value);
 			});
