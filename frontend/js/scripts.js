@@ -595,7 +595,7 @@ function StartApp(){
 			HtmlAppend += '<div class="clearfix"></div>';
 			HtmlAppend += '</div>';
 			HtmlAppend += '<div class="col-lg-6">';
-			HtmlAppend += '<iframe src="slider.html" frameborder="0" allowtransparency="true"></iframe>';
+			/*HtmlAppend += '<iframe src="slider.html" frameborder="0" allowtransparency="true"></iframe>';*/
 			HtmlAppend += '</div> ';
 			HtmlAppend += '<div class="clearfix"></div>';
 			HtmlAppend += '</div>';
