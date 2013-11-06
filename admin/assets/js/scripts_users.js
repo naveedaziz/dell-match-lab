@@ -52,11 +52,12 @@ function StartApp(){
 					
 						var html='';
 							html +='<tr data-id="'+item.id+'">';
-							html +='<td> '+item.id+'</div>';
-							html +='<td> '+item.name+'</div>';
-							html +='<td>';
-							html +='<button  class="close"  data-id="'+item.id+'">x</button>';
+						
+							html +='<td class="col-sm-9"> '+item.name+'</div>';
+							html +='<td class="col-sm-3">';
+							
 							html +="<button data-name='"+item.name+"' data-id='"+item.id+"' data-fb='"+item.fb+"' data-twt='"+item.twitter+"' data-micro='"+item.microsoft+"' data-status='"+item.status+"' data-google='"+item.google+"'  type='button' class='edit' title='edit'><span class='glyphicon glyphicon-pencil'></span></button>";
+							html +='<button  class="close"  data-id="'+item.id+'">x</button>';
 							html +='</td>';  
 						return  $(html)														
 				});

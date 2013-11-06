@@ -60,15 +60,19 @@ function StartApp(){
 			
 			var queryMap = ClientsTable.where({});
 			queryMap.read().then(function(ClientsTable) {
+				
 				 $.each(ClientsTable, function(index,item) {
-					 if(CountryMaps[item.country_id]){
-					 	CountryMaps[item.country_id]['count'] = CountryMaps[item.country_id]['count'] +1;						
-					 }else{
-					 	CountryMaps[item.country_id] = {};
-						CountryMaps[item.country_id]['count'] = 1;
-						CountryMaps[item.country_id]['country'] = item.country;
+					 if(item.country_id != ''){
+						 if(CountryMaps[item.country_id]){
+							CountryMaps[item.country_id]['count'] = CountryMaps[item.country_id]['count'] +1;						
+						 }else{
+							CountryMaps[item.country_id] = {};
+							CountryMaps[item.country_id]['count'] = 1;
+							CountryMaps[item.country_id]['country'] = item.country;
+						 }
 					 }
 				 });
+				
 				 
 			}, handleError).done(function(){
 					var queryMap = ClientsMatchTable.where({});

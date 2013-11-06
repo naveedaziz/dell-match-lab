@@ -62,7 +62,7 @@ function StartApp(){
 				var listItems = $.map(todoItems, function(item) {
 						var html='';
 							html +='<tr class="panel panel-default" data-id="'+item.id+'">';
-							html +='<td> '+item.id+'</td>';
+							
 							html +='<td> '+item.name+'</td>';
 							html +='<td> '+statusProd[item.status]+'</td>';
 							html +="<td><span class='col-lg-1'><span class='glyphicon glyphicon-edit edit' data-id='"+item.id+"' data-name='"+item.name+"' data-parent='"+item.parent+"' data-status='"+item.status+"' ></span></span><span class='col-lg-1'><span class='delete glyphicon glyphicon-remove-circle' data-id='"+item.id+"'></span></span></td>";

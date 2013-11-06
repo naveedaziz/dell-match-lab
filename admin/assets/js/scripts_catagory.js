@@ -61,7 +61,7 @@ function StartApp(){
 					
 						var html='';
 							html +='<tr class="panel panel-default" data-id="'+item.id+'">';
-							html +='<td> '+item.id+'</td>';
+							
 							html +='<td> '+item.name+'</td>';
 							html +='<td> '+item.short_description+'</td>';
 							html +='<td> '+statusProd[item.status]+'</td>';

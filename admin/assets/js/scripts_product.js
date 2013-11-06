@@ -83,7 +83,7 @@ function StartApp(){
 					
 						var html='';
 							html +='<tr class="panel panel-default" data-id="'+item.id+'">';
-							html +='<td> '+item.id+'</td>';
+							
 							html +='<td> '+CatagoryArray[item.catagory]+'</td>';
 							html +='<td> '+item.name+'</td>';
 							html +='<td> '+item.start_price+'</td>';
@@ -259,7 +259,7 @@ function StartApp(){
                      imageHtml += '<span class="glyphicon glyphicon-trash delImage"></span>';
                      imageHtml += '</div>';
                      imageHtml += '<div class="pull-left hidden-sm"> ';
-					 if(defaults != '' && defaults == 'true'){
+					 if(defaults != '' && defaults == true){
                     	 imageHtml += '<span class="glyphicon glyphicon-star-empty default greenYellow"></span>';
 					 }else{
 					 	imageHtml += '<span class="glyphicon glyphicon-star-empty default"></span>';
