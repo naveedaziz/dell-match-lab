@@ -50,7 +50,7 @@ function StartApp(){
 		// createHtmlForMovies
 		function createHtmlForTable(){
 			//alert('');
-			var queryMap = CountryMapping.where({});
+			var queryMap = CountryMapping.where({}).take(1000);
 			queryMap.read().then(function(CountryMapping) {
 				 $.each(CountryMapping, function(index,item) {
 					 productMaps[item.country_attribute+'|'+item.product_id] = 1;

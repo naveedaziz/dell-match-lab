@@ -50,7 +50,7 @@ function StartApp(){
 		// createHtmlForMovies
 		function createHtmlForTable(){
 			//alert('');
-			var queryMap = ProductMapping.where({});
+			var queryMap = ProductMapping.where({}).take(1000);
 			queryMap.read().then(function(ProductMapping) {
 				 $.each(ProductMapping, function(index,item) {
 					 productMaps[item.product_attribute+'|'+item.product_id] = 1;
@@ -97,8 +97,8 @@ function StartApp(){
 							 });
 							 
 						}, handleError).done(function(){
-								console.log(prodAttr);
-								console.log(Catagories);
+								//console.log(prodAttr);
+								//console.log(Catagories);
 								BuildTable();
 						});
 					
@@ -139,7 +139,7 @@ function StartApp(){
 			 tableHtml += '</thead>';
 			 tableHtml += '<tbody>';
 			 
-			 console.log(tableHtml);
+			 //console.log(tableHtml);
 			 var spanTops = '';
 			 $.each(Catagories, function(indexs,item) {
 				 	 spanTops += '<span class="label label-info pull-left">';
@@ -159,7 +159,7 @@ function StartApp(){
 						$.each(prodAttr, function(indexs,item) {
 								$.each(item.childs,function(indx,itm){
 									if(itm != ''){
-										console.log(indx+'|'+ind);
+										//console.log(indx+'|'+ind);
 										if(productMaps[indx+'|'+ind]){
 											tableHtml += '<td data-col="'+indx+'"  data-row="'+ind+'" class="MapMe"><span class="glyphicon glyphicon-ok"></span></td>';
 										}else{
@@ -179,7 +179,7 @@ function StartApp(){
 			 tableHtml += '</tbody>';
 			 $('.table-striped').html(tableHtml);
 			 $('.preLoader').hide();
-			console.log(tableHtml);
+			//console.log(tableHtml);
 		}
 		$(document.body).on('click', '.edit', function() {
 			$('#cityId').val($(this).attr('data-id'));

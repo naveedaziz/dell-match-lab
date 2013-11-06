@@ -56,7 +56,7 @@ function StartApp(){
 		
 		//end get city function
 		function createCountriesHtml(){
-			var query = CountryAttributeTable.where({});
+			var query = CountryAttributeTable.where({}).take(1000);
 			query.read().then(function(todoItems) {
 				 $.each(todoItems, function(index,item) {
 						var html='';	
@@ -74,7 +74,7 @@ function StartApp(){
 		// createHtmlForMovies
 		function createHtmlForProducts(){			
 			$('.preLoader').show();			
-			var query = ProductMappingTable.where({});
+			var query = ProductMappingTable.where({}).take(1000);
 			query.read().then(function(todoItems) {
 				ProductMapping = todoItems;
 				$.each(todoItems, function(index,item) {
@@ -98,7 +98,7 @@ function StartApp(){
 				 
 			
 			}, handleError).then(function(){
-					var query = CountryMappingTable.where({});
+					var query = CountryMappingTable.where({}).take(1000);
 					query.read().then(function(todoItems) {
 						CountryMapping = todoItems;
 						$.each(todoItems, function(index,item) {
@@ -119,7 +119,7 @@ function StartApp(){
 						});						 
 					
 					}, handleError).then(function(){
-								var query = ProductTable.where({});
+								var query = ProductTable.where({}).take(1000);
 								query.read().then(function(todoItems) {
 									productList = todoItems;
 									createProdMatch(1);					 
