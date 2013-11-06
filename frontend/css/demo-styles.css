@@ -250,9 +250,15 @@ padding: 15px;
 	float:left;
 }
 .country{
-	background:url(../images/country.jpg) no-repeat;
-	width: 233px;
-	height: 47px;
+	background: rgb(30,87,153); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(30,87,153,1) 0%, rgba(44,153,221,1) 7%, rgba(73,175,239,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(30,87,153,1)), color-stop(7%,rgba(44,153,221,1)), color-stop(100%,rgba(73,175,239,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(30,87,153,1) 0%,rgba(44,153,221,1) 7%,rgba(73,175,239,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(30,87,153,1) 0%,rgba(44,153,221,1) 7%,rgba(73,175,239,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(30,87,153,1) 0%,rgba(44,153,221,1) 7%,rgba(73,175,239,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(30,87,153,1) 0%,rgba(44,153,221,1) 7%,rgba(73,175,239,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#49afef',GradientType=0 ); /* IE6-9 */
+	width: 80%;
 	margin-bottom:10px;
 	display: inline-block;
 }
@@ -262,21 +268,29 @@ padding: 15px;
 	margin-bottom:40px;
 	font-family:'museo500' 'museo700';
 }
-
-.indonsia{
-	background-position: -240px 0px;
+.Singapore{
+	background-position: 100% -256px !important;
 }
-.malaysia{
-	background-position: -480px 0px;
+.Indonesia{
+	background-position: 100% -76px !important;
 }
-.vitenam{
-	background-position: 0px -51px;
+.Malaysia{
+	background-position: 100% -148px !important;
 }
-.philpine{
-	background-position: -240px -51px;
+.Vietnam{
+	background-position: 100% -220px !important;
 }
-.thiland{
-	background-position: -480px -51px;
+.Philippines{
+	background-position: 100% -183px !important;
+}
+.Thailand{
+	background-position: 100% -40px !important;
+}
+.Sri{
+	background-position: 100% -112px !important;
+}
+.Pakistan{
+	background-position: 100% -3px !important;
 }
 .usage{
 	background:url(../images/usage.jpg) no-repeat;
@@ -586,9 +600,13 @@ iframe{
 	color:#a0abb2;
 	font-family:'museo300';
 	padding-left: 15px;
+	padding-right: 15px;
 }
 .paddingLeft{
 	padding-left: 4%;
+}
+.paddingRight{
+	padding-right: 4%;
 }
 .col-sm-3 label{
 	font-family:'museo300';
@@ -608,4 +626,19 @@ iframe{
 	outline: 0;
 	width: 78px;
 	height:28px;
+}
+.countryButton{
+	background: url(../images/flags.png) right no-repeat;
+	background-position: 100% -291px;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	color: white;
+	font-size: 20px;
+	text-align: center;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	cursor:pointer;
 }
