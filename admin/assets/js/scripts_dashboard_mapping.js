@@ -58,7 +58,7 @@ function StartApp(){
 			
 			
 			
-			var queryMap = ClientsTable.where({});
+			var queryMap = ClientsTable.where({}).take(1000);
 			queryMap.read().then(function(ClientsTable) {
 				
 				 $.each(ClientsTable, function(index,item) {
@@ -75,7 +75,7 @@ function StartApp(){
 				
 				 
 			}, handleError).done(function(){
-					var queryMap = ClientsMatchTable.where({});
+					var queryMap = ClientsMatchTable.where({}).take(1000);
 						queryMap.read().then(function(ClientsMatchTable) {
 							 $.each(ClientsMatchTable, function(index,item) {
 								 var DataAttributes = JSON.parse(item.data_attributes);
@@ -114,7 +114,7 @@ function StartApp(){
 						});
 			});
 			//return true;
-			var query = CountryAttributeTable.where({status:'1'});
+			var query = CountryAttributeTable.where({status:'1'}).take(1000);
 			
 		  /*var query = todoItemTable.where(function(dated){
 											return this.id <= dated
@@ -128,7 +128,7 @@ function StartApp(){
 				 });
 				 
 			}, handleError).done(function(){
-				var query = CatagoryTable.where({status:'1'});
+				var query = CatagoryTable.where({status:'1'}).take(1000);
 					query.read().then(function(todoItems) {
 					 $.each(todoItems, function(index,item) {
 						 Catagories[item.id] = {};
@@ -138,7 +138,7 @@ function StartApp(){
 					 
 				}, handleError).done(function(){
 					//console.log(Catagories);
-						var query = ProductTable.where({status:'1'}).orderBy('catagory');
+						var query = ProductTable.where({status:'1'}).orderBy('catagory').take(1000);;
 							query.read().then(function(todoItems) {
 							 $.each(todoItems, function(index,item) {
 								 Catagories[item.catagory]['products'][item.id] = item.name;
@@ -287,7 +287,7 @@ function StartApp(){
 						
 			}else{
 				$(this).html('');
-					var query = CountryMapping.where({product_id: prodID, country_attribute: prodAttr});
+					var query = CountryMapping.where({product_id: prodID, country_attribute: prodAttr}).take(1000);;
 					query.read().then(function(todoItems) {
 						 $.each(todoItems, function(index,item) {
 								CountryMapping.del({id:item.id});
