@@ -15,7 +15,7 @@
  // Email recipients
  $to = array(
        'naveed.aziz@bramerz.pk'=>'Destination 1 Name',
-	   'zeeshan.javaid@bramerz.pk'=>'Destination 1 Name'
+	   'zeeshan.javaid@bramerz.pk'=>'Destination 2 Name'
  );
  // Email subject
  $subject = 'Dell Match Lab Products';
