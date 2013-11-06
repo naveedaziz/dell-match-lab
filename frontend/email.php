@@ -8,7 +8,8 @@
   * email will be displayed
   */ 
  $text = "Hi!\nHow are you?\n";
- $html = 'We have found these products';
+ $html = file_get_contents('email/index.htm');
+ echo $html;
  // This is your From email address
  $from = array('no-reply@dellmatchlab.com' => 'Dell Match Lab');
  // Email recipients
