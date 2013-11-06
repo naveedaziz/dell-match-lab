@@ -643,3 +643,9 @@ iframe{
 	margin-bottom: 5px;
 	cursor:pointer;
 }
+.shareText{
+	text-align: left;
+color: #1973ab;
+font-weight: bold;
+font-size: 13px;
+}
