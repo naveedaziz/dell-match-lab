@@ -362,15 +362,19 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', end
 	transition:: transform 1s;
 	transition-property: transform;
 	transition-duration: 1s;
-	
-	position: absolute;
-	left: 7%;
-	top: 15%;
+	position: static;
+	left: 0%;
+	top: 0%;
 	width:100%;
 	height:0;
 	overflow:hidden;
-	padding-bottom:5%;
+	padding-bottom:0%;
 	
+	
+}
+.noMargin-padding{
+	margin:0 !important;
+	padding:0 !important;
 }
 .leftPos2{
 	-webkit-transform: translateX(0%);
@@ -382,13 +386,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', end
 	transition-property: transform;
 	transition-duration: 1s;
 	
-	position: absolute;
-	left: 7%;
-	top: 15%;
+	position: static;
+	left: 0%;
+	top: 0%;
 	width:100%;
 	display:none;
 	overflow:hidden;
-	padding-bottom:5%;
+	padding-bottom:2%;
+	padding-top:2%;
+	
 	
 }
 .op0{
@@ -642,6 +648,10 @@ iframe{
 	margin-top: 5px;
 	margin-bottom: 5px;
 	cursor:pointer;
+	font-size: 140%;
+	text-align: center;
+	font-weight: bold;
+	
 }
 .shareText{
 	text-align: left;

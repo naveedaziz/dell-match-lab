@@ -203,15 +203,25 @@ function StartApp(){
 		if(val == '0%'){
 			$(item).css('height','auto');
 			$(item).css('overflow','auto');
+			$(item).css('display','block');
+			$(item).removeClass('noMargin-padding');
 		}
-		$(item).css('-webkit-transform','translateX('+val+')');
-		$(item).css('-ms-transform','translateX('+val+')');
-		$(item).css('transform','translateX('+val+')');
+		if(val == '0%'){
+			setTimeout(function(){
+				$(item).css('-webkit-transform','translateX('+val+')');
+				$(item).css('-ms-transform','translateX('+val+')');
+				$(item).css('transform','translateX('+val+')');
+			},500);
+		}else{
+				$(item).css('-webkit-transform','translateX('+val+')');
+				$(item).css('-ms-transform','translateX('+val+')');
+				$(item).css('transform','translateX('+val+')');
+		}
 		
 		//console.log(val);
 		if(val == '-220%' || val == '220%'){
 			ClickedItem = item;
-			setTimeout("$(ClickedItem).css('height','0');$(ClickedItem).css('overflow','hidden');",1000);
+			setTimeout("$(ClickedItem).css('height','0');$(ClickedItem).css('overflow','hidden');$(ClickedItem).css('display','none');$(ClickedItem).addClass('noMargin-padding');",1000);
 		}
 	}						
 	function createProdMatch(dts){
@@ -305,7 +315,7 @@ function StartApp(){
 			$('.screen-1').css('height','auto');
 			$('.screen-1').css('overflow','auto');
 			translate('.screen-1','0%');
-			setTimeout("$('.leftPos2').fadeIn()",1000);
+			setTimeout("$('.leftPos2').fadeIn();$('.mainBg,footer').remove();",1000);
 			$("html, body").animate({ scrollTop: "0" });
 		});
 		$(document.body).on('click', '.showMatched', function() {
