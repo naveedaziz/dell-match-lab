@@ -211,7 +211,7 @@ function StartApp(){
 				$(item).css('-webkit-transform','translateX('+val+')');
 				$(item).css('-ms-transform','translateX('+val+')');
 				$(item).css('transform','translateX('+val+')');
-			},500);
+			},700);
 		}else{
 				$(item).css('-webkit-transform','translateX('+val+')');
 				$(item).css('-ms-transform','translateX('+val+')');
@@ -663,7 +663,7 @@ function sendEmail(){
 	$.ajax({
                   type: "GET",
                   url: "email.php",
-                  data: "data="+JSON.stringify(ProductDataToEmail),
+                  data: "data="+encodeURI(JSON.stringify(ProductDataToEmail)),
                   success: function(msg){
 					$('.preLoaderEmail img').hide();
                   	$('.preLoaderEmail h4').html('Email Sent');

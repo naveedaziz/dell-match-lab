@@ -1,9 +1,8 @@
 <?php
-$data = $_REQUEST['data'];
+$data = urldecode($_REQUEST['data']);
 $dts = json_decode($data);
-/*echo '<pre>';
-print_r($data);
-die();*/
+
+
  include_once "lib/swift_required.php";
  /*
   * Create the body of the message (a plain-text and an HTML version).
@@ -15,13 +14,13 @@ die();*/
  ob_start();
  $text = '';
 //$html = include 'http://localhost/dell-mtach-lab/email/index.php'; // (string)"World"
-$html = file_get_contents('http://localhost/dell-mtach-lab/email/index.php?data='.urlencode($data));//die();
+$html = file_get_contents('http://dellmatchlab.com/email/index.php?data='.urlencode($_REQUEST['data']));//die();
 echo $html;
  // This is your From email address
  $from = array('no-reply@dellmatchlab.com' => 'Dell Match Lab');
  // Email recipients
  $to = array(
-       'naveed.aziz@bramerz.pk'=>'Destination 1 Name',
+       $dts->userEmail=>$dts->userName,
  );
  // Email subject
  $subject = 'Dell Match Lab Products';

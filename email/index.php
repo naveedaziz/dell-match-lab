@@ -1,7 +1,7 @@
 <?php
- $data = json_decode(urldecode($_REQUEST['data']));
-/*print_r($data);
-die();*/
+$dts = urldecode($_REQUEST['data']);
+$data = json_decode($dts);
+
 ?>
 <style type="text/css">
 /* Mobile-specific Styles */
@@ -196,7 +196,7 @@ padding-bottom: 20px;">Hi <?=$data->userName;?><br />
 font-weight: normal;
 font-size: 12px;">
                  	<p>Thank you for using The Match Lab.
-                    Following products from the Dell family make a perfect match for your preferences. Please feel free to explore these or try new matches at The Match Lab.<br />
+                    Following products from the Dell family make a perfect match for your preferences. Please feel free to explore these or try new matches at <a href="http://dellmatclab.com/">The Match Lab.</a><br />
                     	
                  	 <!--<br />
 <strong>(Product Details)</strong><br />
@@ -225,7 +225,7 @@ font-size: 12px;">
                         <table class="w580" width="580" cellpadding="0" cellspacing="0" border="0">
                             <tbody><tr>
                             <? $i = 1; foreach($data->data as $key=>$values){
-								if($i <=3){
+								
 									
 								?>
                                 <td valign="top" style="border-right:1px solid #F4F4F4;border-left:1px solid  #F4F4F4;"  align="center">
@@ -252,8 +252,12 @@ font-size: 12px;">
                                     </table>
                                 </td>
                                 <td width="20"></td>
-                             
-							 <? $i++; } }?>
+                             	<? if($i % 3 == 0){ ?>
+                                	</tr>
+                                    
+                                    <tr>
+                                
+							 <? }$i++;  }?>
                              
                              
                                
@@ -296,7 +300,7 @@ font-size: 12px;">
 "><span style="
     color: #e7cba3;  white-space: normal;
     font-size: 11px;  line-height: 16px;
-">Dell Corporation Pvt Ltd</span></p>
+">Coypright © Dell </span></p>
             </td>
             <td class="w30" width="30"></td>
         </tr>

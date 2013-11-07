@@ -355,13 +355,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', end
 }
 .leftPos{
 	-webkit-transform: translateX(220%);
-	-webkit-transition: -webkit-transform 1s;
+	-webkit-transition: -webkit-transform 1200ms;
 	-ms-transform:: translateX(220%);
-	-ms-transition:: -ms-transform 1s;
+	-ms-transition:: -ms-transform 1200ms;
 	transform: translateX(220%);
-	transition:: transform 1s;
+	transition:: transform 1200ms;
 	transition-property: transform;
-	transition-duration: 1s;
+	transition-duration: 1200ms;
 	position: static;
 	left: 0%;
 	top: 0%;
@@ -394,6 +394,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', end
 	overflow:hidden;
 	padding-bottom:2%;
 	padding-top:2%;
+	
 	
 	
 }
@@ -651,6 +652,7 @@ iframe{
 	font-size: 140%;
 	text-align: center;
 	font-weight: bold;
+	padding-right: 24px;
 	
 }
 .shareText{
