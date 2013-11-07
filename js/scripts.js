@@ -570,13 +570,13 @@ function StartApp(){
 		/*	HtmlAppend += '<div class="col-lg-4">';
 			HtmlAppend += '<h4 class="price">$'+item.start_price+'</h4>';
 			HtmlAppend += '</div>';*/
-			HtmlAppend += '<div class="col-lg-12" align="right">';
+			/*HtmlAppend += '<div class="col-lg-12" align="right">';
 			HtmlAppend += '<div class="fb">';
 			HtmlAppend += '<p class="shareText">Share this product with your friends</p>>';
 			HtmlAppend += '<div class="col-lg-4"><iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fdell-match-lab.azurewebsites.net%2Ffrontend%2F&amp;width&amp;height=21&amp;colorscheme=light&amp;layout=button_count&amp;action=like&amp;show_faces=true&amp;send=false&amp;appId=645025702216038" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:21px;" allowTransparency="true"></iframe></div>';
 			HtmlAppend += '<div class="col-lg-4"><iframe allowtransparency="true" frameborder="0" scrolling="no"  src="https://platform.twitter.com/widgets/tweet_button.html" style="width:130px; height:20px;"></iframe></div>'	;
 			HtmlAppend += '</div>';
-			HtmlAppend += '</div>';
+			HtmlAppend += '</div>';*/
 			HtmlAppend += '<div class="clearfix"></div>';
 			HtmlAppend += '<div class="col-lg-12 borderTop">';
 			HtmlAppend += '<div class="col-lg-6">';
