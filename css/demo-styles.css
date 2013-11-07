@@ -649,3 +649,9 @@ color: #1973ab;
 font-weight: bold;
 font-size: 13px;
 }
+
+.prodImgInner{
+	max-height: 247px;
+	width: auto;
+	max-width:100%;
+}
