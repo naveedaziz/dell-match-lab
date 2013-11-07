@@ -17,7 +17,7 @@ function GetApp(){
 			$('#myModal').modal();
 		});
 	return true;*/
-	$.getJSON('../app.json', function(data) {
+	$.getJSON('app.json', function(data) {
 		AppId = data.id;
 		AppURL = data.url;
 		StartApp();
@@ -232,7 +232,7 @@ function StartApp(){
 													var prodImage = JSON.parse(item.product_images);
 													$.each(prodImage,function(id,itm){
 														if(itm.defaults == true){
-															appendHtml += '<img src="../admin/'+itm.img+'"  data-id="'+item.id+'" width="100%;" class="prodImg">';
+															appendHtml += '<img src="admin/'+itm.img+'"  data-id="'+item.id+'" width="100%;" class="prodImg">';
 														}
 													});
 													appendHtml += '</div> ';
@@ -250,7 +250,7 @@ function StartApp(){
 													var prodImage = JSON.parse(item.product_images);
 													$.each(prodImage,function(id,itm){
 														if(itm.defaults == true){
-															appendHtml += '<img src="../admin/'+itm.img+'"  data-id="'+item.id+'" width="100%;" class="prodImgInner">';
+															appendHtml += '<img src="admin/'+itm.img+'"  data-id="'+item.id+'" width="100%;" class="prodImgInner">';
 														}
 													});
 													appendHtml += '</div> ';
@@ -525,7 +525,7 @@ function StartApp(){
 			var prodImage = JSON.parse(item.product_images);
 			$.each(prodImage,function(id,itm){
 				if(itm.defaults == true){
-					HtmlAppend += '<img src="../admin/'+itm.img+'"  data-id="'+item.id+'" width="100%;" class="sliderImg">';
+					HtmlAppend += '<img src="admin/'+itm.img+'"  data-id="'+item.id+'" width="100%;" class="sliderImg">';
 				}
 			});
 			HtmlAppend += '</div>';
@@ -533,13 +533,13 @@ function StartApp(){
 			var prodImage = JSON.parse(item.product_images);
 			$.each(prodImage,function(id,itm){
 				if(itm.defaults == true){
-					HtmlAppend += '<img src="../admin/'+itm.img+'" class="sliderImgThumb">';
+					HtmlAppend += '<img src="admin/'+itm.img+'" class="sliderImgThumb">';
 				}
 			});
 			var prodImage = JSON.parse(item.product_images);
 			$.each(prodImage,function(id,itm){
 				if(itm.defaults != true){
-					HtmlAppend += '<img src="../admin/'+itm.img+'" class="sliderImgThumb">';
+					HtmlAppend += '<img src="admin/'+itm.img+'" class="sliderImgThumb">';
 				}
 			});
 			HtmlAppend += '<div class="clearfix"></div>';
@@ -596,7 +596,7 @@ function StartApp(){
 			HtmlAppend += '<div class="clearfix"></div>';
 			HtmlAppend += '</div>';
 			HtmlAppend += '<div class="col-lg-6">';
-			/*HtmlAppend += '<iframe src="slider.html" frameborder="0" allowtransparency="true"></iframe>';*/
+			/*HtmlAppend += '<iframe src="../frontend/js/slider.html" frameborder="0" allowtransparency="true"></iframe>';*/
 			HtmlAppend += '</div> ';
 			HtmlAppend += '<div class="clearfix"></div>';
 			HtmlAppend += '</div>';
