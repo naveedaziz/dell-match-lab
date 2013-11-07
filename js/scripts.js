@@ -601,7 +601,7 @@ function StartApp(){
 			HtmlAppend += '</div>  ';
 			HtmlAppend += '<div class="clearfix"></div>	';
 			HtmlAppend += '<div class="col-lg-12">';
-			HtmlAppend += '<div class="col-lg-6">';
+			HtmlAppend += '<div class="col-lg-12">';
 			HtmlAppend += '<h1 class="subHeading">Features</h1>';
 			HtmlAppend += '<ul class="noPadding listing">';
 			var ct = 1;
