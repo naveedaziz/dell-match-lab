@@ -567,7 +567,8 @@ margin-bottom: 2%;
 	width:100%;
 	border-bottom:1px solid #e4e5e5;
 	color:#1b82c2;
-	font-size:25px;
+	font-size:35px;
+	font-family: 'museo700';
 }
 .listing li{
 	color:#76838b;
