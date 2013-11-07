@@ -1,4 +1,8 @@
-
+<?php
+ $data = json_decode(urldecode($_REQUEST['data']));
+/*print_r($data);
+die();*/
+?>
 <style type="text/css">
 /* Mobile-specific Styles */
 
@@ -83,9 +87,7 @@ body, td { font-family: HelveticaNeue, sans-serif; }
     font-size: 12px;  color: #e7cba3;
 "><a href="http://preview.createsend1.com/t/d-e-l-l-r/" style="
     font-weight: bold;  color: #e7cba3;  text-decoration: none;
-">Web Version</a><span class="hide">&nbsp;&nbsp;|&nbsp; <a href="http://client.updatemyprofile.com/d-l-2AD73FFF-l-y" lang="en" style="
-    font-weight: bold;  color: #e7cba3;  text-decoration: none;
-">Update preferences</a>&nbsp;&nbsp;|&nbsp; <a href="http://preview.createsend1.com/t/d-u-l-l-j/" style="
+">Web Version</a><span class="hide">&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp; <a href="http://preview.createsend1.com/t/d-u-l-l-j/" style="
     font-weight: bold;  color: #e7cba3;  text-decoration: none;
 ">Unsubscribe</a></span></div>
             <table class="w325" width="350" cellpadding="0" cellspacing="0" border="0">
@@ -106,7 +108,7 @@ body, td { font-family: HelveticaNeue, sans-serif; }
     font-size: 12px;  color: #e7cba3;
 "><a href="http://preview.createsend1.com/t/d-fb-l-l-i/" rel="cs_facebox" style="
     font-weight: bold;  color: #e7cba3;  text-decoration: none;  font-size: 12px;
-">Like</a></div></td>
+">Facebook</a></div></td>
         
         
         <td class="w10" width="10"></td>
@@ -116,7 +118,7 @@ body, td { font-family: HelveticaNeue, sans-serif; }
     font-size: 12px;  color: #e7cba3;
 "><a href="http://preview.createsend1.com/t/d-tw-l-l-h/" style="
     font-weight: bold;  color: #e7cba3;  text-decoration: none;  font-size: 12px;
-">Tweet</a></div></td>
+">Twitter</a></div></td>
         
         
         <td class="w10" width="10"></td>
@@ -189,21 +191,22 @@ margin-top: 18px;
 color: #1b82c2;
 font-size: 18px;
 
-padding-bottom: 20px;">Hi Zille Abbas<br />
+padding-bottom: 20px;">Hi <?=$data->userName;?><br />
 			<span style="color: #888;
 font-weight: normal;
 font-size: 12px;">
-                 	<p>Thank you for using The Match Lab. <br />
-                 	 We have gone through your preferences and have come up with  the following machines that match your requirements:<br />
-                 	 <br />
+                 	<p>Thank you for using The Match Lab.
+                    Following products from the Dell family make a perfect match for your preferences. Please feel free to explore these or try new matches at The Match Lab.<br />
+                    	
+                 	 <!--<br />
 <strong>(Product Details)</strong><br />
                  	 This machine(s) has been selected after careful evaluation  of your purpose of use. Now you can buy it at the most competitive price tag  from the following authorized resellers near you:<br />
-                 	 <br />
-<strong>(Reseller Details)</strong><br />
+                 	 <br />-->
+<!--<strong>(Reseller Details)</strong><br />
                  	 Here at DELL, we strive to notch up the user experience and  customer care. Your valuable feedback in this regards will be much appreciated. <br />
-                 	 Happy Shopping!</p><br />
+                 	 Happy Shopping!</p><br />-->
 
-                    <p><strong>DELL Pakistan</strong></p>
+                    <!--<p><strong>DELL Pakistan</strong></p>-->
                   </span>  
                     </h1>
 
@@ -221,63 +224,39 @@ font-size: 12px;">
                     <layout label="Image gallery">
                         <table class="w580" width="580" cellpadding="0" cellspacing="0" border="0">
                             <tbody><tr>
-                                <td class="w180" width="180" valign="top">
-                                    <table class="w180" width="180" cellpadding="0" cellspacing="0" border="0" style="border-right:1px solid #ccc;">
+                            <? $i = 1; foreach($data->data as $key=>$values){
+								if($i <=3){
+									
+								?>
+                                <td valign="top" style="border-right:1px solid #F4F4F4;border-left:1px solid  #F4F4F4;"  align="center">
+                                    <table class="w180"  cellpadding="0" cellspacing="0" border="0" >
                                         <tbody><tr>
-                                            <td class="w180" width="180"><img label="Image" class="w180" width="180" border="0" src="http://dellmatchlab.com/admin/server/php/files/in14t_7437_lnb_00000f90_gy%20(2).jpg" ></td>
+                                        <? $imges = json_decode($values->image);?>
+                                        <? foreach($imges as $vt){
+											if($vt->defaults == 'true'){ ?>
+											
+                                            <td class="w180" width="180"><img label="Image" class="w180" width="180" border="0" src="http://dellmatchlab.com/admin/<?=urldecode($vt->img);?>" ></td>
+                                        	<? } } ?>
                                         </tr>
                                         <tr><td class="w180" width="180" height="10"></td></tr>
                                         <tr>
                                             <td class="w180" width="180">
-                                            <h2 style="color: #1b82c2;font-size: 18px;">Dell Inspirion 8800</h2>
+                                            <h2 style="color: #1b82c2;font-size: 18px;"><?=$values->name;?></h2>
                                                 <div align="left" class="article-content">
-                                                 <p  style="color:##747474;"> is simply dummy text of the printing and typesetting industry. </p>
-                                                 <p  style="color:##747474;"> is simply dummy text of the printing and typesetting industry. </p>
+                                                 <p  style="color:##747474;"> <?=$values->shortDesp;?> </p>
                                                 </div>
                                             </td>
                                         </tr>
                                         <tr><td class="w180" width="180" height="10"></td></tr>
-                                    </tbody></table>
+                                    </tbody>
+                                    </table>
                                 </td>
                                 <td width="20"></td>
-                                <td class="w180" width="180" valign="top">
-                                    <table class="w180" width="180" cellpadding="0" cellspacing="0" border="0" style="border-right:1px solid #ccc;">
-                                        <tbody><tr>
-                                            <td class="w180" width="180"><img label="Image" class="w180" width="180" border="0" src="http://dellmatchlab.com/admin/server/php/files/in14t_7437_lnb_00120lb60_gy%20(3).jpg"></td>
-                                        </tr>
-                                        <tr><td class="w180" width="180" height="10"></td></tr>
-                                        <tr>
-                                            <td class="w180" width="180">
-                                            <h2 style="color: #1b82c2;font-size: 18px;">Dell Inspirion 8800</h2>
-                                                <div align="left" class="article-content">
-                                                 <p  style="color:##747474;">is simply dummy text of the printing and typesetting industry. </p>
-                                                 <p  style="color:##747474;"> is simply dummy text of the printing and typesetting industry. </p>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr><td class="w180" width="180" height="10"></td></tr>
-                                    </tbody></table>
-                                </td>
-                                <td width="20"></td>
-                                <td class="w180" width="180" valign="top">
-                                    <table class="w180" width="180" cellpadding="0" cellspacing="0" border="0">
-                                        <tbody><tr>
-                                            <td class="w180" width="180"><img label="Image" class="w180" width="180" border="0" src="http://dellmatchlab.com/admin/server/php/files/in11_3000_bonsai_360_17.jpg"></td>
-                                        </tr>
-                                        <tr><td class="w180" width="180" height="10"></td></tr>
-                                        <tr>
-                                            <td class="w180" width="180">
-                                            <h2 style="color: #1b82c2;font-size: 18px;">Dell Inspirion 8800</h2>
-                                                <div align="left" class="article-content">
-                                                
-                                                 <p  style="color:##747474;"> is simply dummy text of the printing and typesetting industry. </p>
-                                                 <p style="color:##747474;"> is simply dummy text of the printing and typesetting industry. </p>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr><td class="w180" width="180" height="10"></td></tr>
-                                    </tbody></table>
-                                </td>
+                             
+							 <? $i++; } }?>
+                             
+                             
+                               
                             </tr>
                         </tbody></table>
                     </layout>

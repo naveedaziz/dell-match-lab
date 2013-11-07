@@ -8,6 +8,8 @@ var productList = {};
 var ProductMapping = {};
 var CountryMapping = {};
 var ClickedItem = '';
+var ProductDataToEmail = {};
+var UserEmail = '';
 $('.ContentImg').css('min-height',$(window).height() / 1.67+'px');
 function GetApp(){
 	
@@ -122,6 +124,7 @@ function StartApp(){
 								var query = ProductTable.where({}).take(1000);
 								query.read().then(function(todoItems) {
 									productList = todoItems;
+									//console.log($.param( productList ));
 									createProdMatch(1);					 
 								
 								}, handleError).done(function(){
@@ -205,17 +208,27 @@ function StartApp(){
 		$(item).css('-ms-transform','translateX('+val+')');
 		$(item).css('transform','translateX('+val+')');
 		
-		console.log(val);
+		//console.log(val);
 		if(val == '-220%' || val == '220%'){
 			ClickedItem = item;
-			setTimeout("$(ClickedItem).css('height','0');$(ClickedItem).css('overflow','hidden');console.log(ClickedItem);",1000);
+			setTimeout("$(ClickedItem).css('height','0');$(ClickedItem).css('overflow','hidden');",1000);
 		}
 	}						
 	function createProdMatch(dts){
+		console.log(ProductIds);
+		ProductDataToEmail = {};
+		ProductDataToEmail['userName'] = $('.userName').html();
+		ProductDataToEmail['userEmail'] = UserEmail;
+		ProductDataToEmail['data']= {};
 		$.each(productList, function(index,item) {
 										//console.log(item);
 										$.each(ProductIds, function(indexs,items) {
 												if(items == 4 && indexs == item.id){
+													ProductDataToEmail['data'][item.id] = {};
+													ProductDataToEmail['data'][item.id]['name'] = item.name;
+													ProductDataToEmail['data'][item.id]['shortDesp'] = item.short_description;
+													ProductDataToEmail['data'][item.id]['image'] = item.product_images;
+													
 													var appendHtml = '';
 													appendHtml += '<div class="col-sm-4">';
 													appendHtml += '<div class="col-sm-12">';
@@ -237,7 +250,7 @@ function StartApp(){
 													});
 													appendHtml += '</div> ';
 													appendHtml += '</div>';
-													console.log(appendHtml);
+													//console.log(appendHtml);
 													$('.prodListings').append(appendHtml);
 													
 												}
@@ -281,6 +294,7 @@ function StartApp(){
 						user_id: UserId				
 					};
 					ClientMatchTable.insert(theNewRow);
+					console.log($.param(ProductDataToEmail));
 	}
 	
 	
@@ -298,6 +312,7 @@ function StartApp(){
 			dataAttributes['usage'] =  $('#usage').val();
 			dataAttributes['usageDetail'] =   $('#usageDetial').val();
 			dataAttributes['mobility'] =   $('#mobility').val();
+			console.log(dataAttributes);
 			createHtmlForProductsAfterChange();			
 		});
 		$('.formSubmit').on('click',function(){
@@ -400,7 +415,7 @@ function StartApp(){
 			dataAttributes['mobility'] = $(this).attr('data-id');
 			$('#mobility').val(dataAttributes['mobility']);
 			createHtmlForProducts();
-			console.log(dataAttributes);
+			//console.log(dataAttributes);
 		});
 		$(document.body).on('click', '.completeSelect', function() {
 		
@@ -475,7 +490,8 @@ function StartApp(){
 		$('.sliderImg').attr('src',$(this).attr('src'));		
 	});
 	$(document.body).on('click', '.emailMatches', function() {
-			$('.preLoaderEmail').show();		
+			$('.preLoaderEmail').show();
+			sendEmail();		
 		});
 	
 	}
@@ -505,6 +521,7 @@ function StartApp(){
 	
 	function getUserInfo(data){
 			UserId = data.id;
+			UserEmail =  data.email;
 			$('.userName').html(data.name);
 			translate('.screen-1','-220%');
 			$('.screen-2').css('height','auto');
@@ -633,6 +650,15 @@ function StartApp(){
 
 function sendEmail(){
 	// Create the email object first, then add the properties.
-	
+	$.ajax({
+                  type: "GET",
+                  url: "email.php",
+                  data: "data="+JSON.stringify(ProductDataToEmail),
+                  success: function(msg){
+					$('.preLoaderEmail img').hide();
+                  	$('.preLoaderEmail h4').html('Email Sent');
+					setTimeout("$('.preLoaderEmail').hide();$('.preLoaderEmail h4').html('Sending Email....');$('.preLoaderEmail img').show();",3000);
+                  }
+     });
 }
 
