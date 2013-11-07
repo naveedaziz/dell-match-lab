@@ -196,7 +196,7 @@ padding-bottom: 20px;">Hi <?=$data->userName;?><br />
 font-weight: normal;
 font-size: 12px;">
                  	<p>Thank you for using The Match Lab.
-                    Following products from the Dell family make a perfect match for your preferences. Please feel free to explore these or try new matches at <a href="http://dellmatclab.com/">The Match Lab.</a><br />
+                    Following products from the Dell family make a perfect match for your preferences. Please feel free to explore these or try new matches at <a href="http://dellmatchlab.com/">The Match Lab.</a><br />
                     	
                  	 <!--<br />
 <strong>(Product Details)</strong><br />

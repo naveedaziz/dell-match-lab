@@ -205,6 +205,7 @@ function StartApp(){
 			$(item).css('overflow','auto');
 			$(item).css('display','block');
 			$(item).removeClass('noMargin-padding');
+			$(item).addClass('marginBottom');
 		}
 		if(val == '0%'){
 			setTimeout(function(){
@@ -221,7 +222,7 @@ function StartApp(){
 		//console.log(val);
 		if(val == '-220%' || val == '220%'){
 			ClickedItem = item;
-			setTimeout("$(ClickedItem).css('height','0');$(ClickedItem).css('overflow','hidden');$(ClickedItem).css('display','none');$(ClickedItem).addClass('noMargin-padding');",1000);
+			setTimeout("$(ClickedItem).css('height','0');$(ClickedItem).css('overflow','hidden');$(ClickedItem).css('display','none');$(ClickedItem).addClass('noMargin-padding');$(ClickedItem).removeClass('marginBottom');",1000);
 		}
 	}						
 	function createProdMatch(dts){

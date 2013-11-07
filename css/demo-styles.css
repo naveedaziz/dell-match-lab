@@ -655,6 +655,9 @@ iframe{
 	padding-right: 24px;
 	
 }
+.marginBottom{
+	margin-bottom:10%;
+}
 .shareText{
 	text-align: left;
 color: #1973ab;
