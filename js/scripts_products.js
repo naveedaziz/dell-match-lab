@@ -132,7 +132,7 @@ function StartApp(){
 													var appendHtml = '';
 													appendHtml += '<div class="col-lg-4">';
 													appendHtml += '<div class="col-sm-12 prodThumb">';
-													appendHtml += '<div class="col-lg-12">';
+													appendHtml += '<div class="col-lg-12" align="center">';
 													var prodImage = JSON.parse(item.product_images);
 													$.each(prodImage,function(id,itm){
 														if(itm.defaults == true){
