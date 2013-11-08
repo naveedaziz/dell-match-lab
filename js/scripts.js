@@ -701,7 +701,7 @@ function sendEmail(){
 	 $.ajax({
                   type: "POST",
                   url: "https://dell-match-lab.azure-mobile.net/api/sendemail/",
-                  data: "data="+encodeURIComponent($('.emailTemplate').html()),
+                  data: "email="+ProductDataToEmail['userEmail']+"&data="+encodeURIComponent($('.emailTemplate').html()),
                   success: function(msg){
 				  	$('.preLoaderEmail img').hide();
                   	$('.preLoaderEmail h4').html('Email Sent');
