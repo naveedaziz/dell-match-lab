@@ -7,6 +7,7 @@ var Catagories = {};
 var CountryMaps = {};
 var CountryMapsData = {};
 var productMaps = {};
+var uncounts = 0;
 function GetApp(){
 	//return true;
 	$.getJSON('../app.json', function(data) {
@@ -70,6 +71,8 @@ function StartApp(){
 							CountryMaps[item.country_id]['count'] = 1;
 							CountryMaps[item.country_id]['country'] = item.country;
 						 }
+					 }else{
+					 	uncounts =  uncounts+1;
 					 }
 				 });
 				
@@ -171,6 +174,7 @@ function StartApp(){
 			RowMain += '<tr class="rowMain">'; 
 			RowMain += '<th rowspan="1" >Countries</th>';
 			RowMain += '<th rowspan="1" >Total Users</th>';
+			RowMain += '<th rowspan="1" >Users Completed Match</th>';
 			RowMain += '<th rowspan="1" >Match Counts</th>';
 			
 			RowMain += '</tr>';
@@ -192,6 +196,7 @@ function StartApp(){
 						
 						tableHtml += '<tr class="girdList">';
 						tableHtml += '<td><h3>'+CountryName+'</h3></td>';
+						tableHtml += '<td><h3>'+parseInt(parseInt(userTotal)+parseInt(uncounts))+'</h3></td>';
 						tableHtml += '<td><h3>'+userTotal+'</h3></td>';
 						tableHtml += '<td><h3>'+SubTotal+'</h3></td>';
 						tableHtml += '</tr>';
