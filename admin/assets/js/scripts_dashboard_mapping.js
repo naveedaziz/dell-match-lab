@@ -170,15 +170,16 @@ function StartApp(){
 			
 			RowMain += '<tr class="rowMain">'; 
 			RowMain += '<th rowspan="1" >Countries</th>';
-			RowMain += '<th rowspan="1" >Total</th>';
-			RowMain += '<th rowspan="1" >Completed</th>';
-			RowMain += '<th rowspan="1" >Incomplete</th>';
+			RowMain += '<th rowspan="1" >Total Users</th>';
+			RowMain += '<th rowspan="1" >Match Counts</th>';
+			
 			RowMain += '</tr>';
 			
 			tableHtml += RowMain;
 			tableHtml += '</thead>';
 			tableHtml += '<tbody>';
 			 var lengths = 0;
+			 console.log(CountryMapsData);
 			$.each(CountryMaps,function(ind,itms){
 					if(itms != ''){
 						var CountryName = itms['country'];
@@ -191,16 +192,8 @@ function StartApp(){
 						
 						tableHtml += '<tr class="girdList">';
 						tableHtml += '<td><h3>'+CountryName+'</h3></td>';
-						if(userTotal >= SubTotal){
-							tableHtml += '<td><h3>'+userTotal+'</h3></td>';
-							tableHtml += '<td><h3>'+SubTotal+'</h3></td>';
-							tableHtml += '<td><h3>'+parseInt(parseInt(userTotal) - parseInt(SubTotal))+'</h3></td>';
-						}else{
-							tableHtml += '<td><h3>'+SubTotal+'</h3></td>';
-							tableHtml += '<td><h3>'+userTotal+'</h3></td>';
-							tableHtml += '<td><h3>'+parseInt(parseInt(SubTotal) - parseInt(userTotal))+'</h3></td>';
-						}
-						
+						tableHtml += '<td><h3>'+userTotal+'</h3></td>';
+						tableHtml += '<td><h3>'+SubTotal+'</h3></td>';
 						tableHtml += '</tr>';
 					}
 				});
