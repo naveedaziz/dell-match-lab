@@ -680,7 +680,7 @@ function sendEmail(){
 		EmailHtml += '<td class="w180" width="180">';
 		EmailHtml += '<h2 style="color: #1b82c2;font-size: 18px;">'+itm.name+'</h2>';
 		EmailHtml += '<div align="left" class="article-content">';
-		EmailHtml += '<p  style="color:##747474;"> '+itm.shortDesp+' </p>';
+		EmailHtml += '<p  style="color:##747474;">'+itm.shortDesp+'</p>';
 		EmailHtml += '</div>';
 		EmailHtml += '</td>';
 		EmailHtml += '</tr>';
