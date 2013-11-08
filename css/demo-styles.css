@@ -674,3 +674,10 @@ font-size: 13px;
 .emailTemplate{
 	position:fixed; left:-19999px; top:-19999px;
 }
+.preloadClass{
+	background:none;
+	top:40%;
+	border:none;
+}
+	
+}
