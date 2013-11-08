@@ -453,9 +453,12 @@ bubble p{
 .prodDisp h1{
 	font-family:'museo300';
 	font-size: 30px;
+	font-family: 'museo500';
+	font-size: 21px;
 }
 .prodDisp p{
 	font-size: 13px;
+	display: none;
 }
 .colorBlue h1{
 	font-family:'museo700';
@@ -490,6 +493,7 @@ bubble p{
 	margin-right: -3.3%;
 	margin-top: -1%;
 	margin-bottom: 2%;
+	display: none;
 }
 .more_list{
 background: url(../images/more.png);
@@ -670,6 +674,8 @@ font-size: 13px;
 	max-height: 247px;
 	width: auto;
 	max-width:100%;
+	width: auto;
+	height: 193px;
 }
 .emailTemplate{
 	position:fixed; left:-19999px; top:-19999px;
@@ -679,5 +685,12 @@ font-size: 13px;
 	top:40%;
 	border:none;
 }
-	
+@media (max-width:1200px){
+	.borderleft{
+		border:0;
+	}
+	.formName {
+		margin-left: 0%;
+		width: 90%;
+}
 }
