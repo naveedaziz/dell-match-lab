@@ -660,16 +660,54 @@ function StartApp(){
 }
 
 function sendEmail(){
-	// Create the email object first, then add the properties.
-	$.ajax({
-                  type: "GET",
-                  url: "email.php",
-                  data: "data="+encodeURI(JSON.stringify(ProductDataToEmail)),
+	console.log(ProductDataToEmail);
+	var EmailHtml = '';
+	var i = 1;
+	    EmailHtml += '<tr>';
+	$.each(ProductDataToEmail.data,function(ind,itm){
+		EmailHtml += '<td valign="top" style="border-right:1px solid #F4F4F4;border-left:1px solid  #F4F4F4;"  align="center">';
+		EmailHtml += '<table class="w180"  cellpadding="0" cellspacing="0" border="0" >';
+		EmailHtml += '<tbody><tr>';
+		var imgs = JSON.parse(itm.image);
+		$.each(imgs,function(indd,ittm){
+			if(ittm.defaults == true)
+				EmailHtml += '<td class="w180" width="180"><img label="Image" class="w180" width="180" border="0" src="http://dellmatchlab.com/admin/'+ittm.img+'" ></td>';
+			}
+		);
+		EmailHtml += '</tr>';
+		EmailHtml += '<tr><td class="w180" width="180" height="10"></td></tr>';
+		EmailHtml += '<tr>';
+		EmailHtml += '<td class="w180" width="180">';
+		EmailHtml += '<h2 style="color: #1b82c2;font-size: 18px;">'+itm.name+'</h2>';
+		EmailHtml += '<div align="left" class="article-content">';
+		EmailHtml += '<p  style="color:##747474;"> '+itm.shortDesp+' </p>';
+		EmailHtml += '</div>';
+		EmailHtml += '</td>';
+		EmailHtml += '</tr>';
+		EmailHtml += '<tr><td class="w180" width="180" height="10"></td></tr>';
+		EmailHtml += '</tbody>';
+		EmailHtml += '</table>';
+		EmailHtml += '</td>';
+		EmailHtml += '<td width="20"></td>';
+		if(i % 3 == 0){
+			EmailHtml += '</tr>';
+			EmailHtml += '<tr>';
+		}
+		i++;
+	});
+		EmailHtml += '</tr>';
+	$('.bodyEmail').append(EmailHtml);
+
+	 $.ajax({
+                  type: "POST",
+                  url: "https://dell-match-lab.azure-mobile.net/api/sendemail/",
+                  data: "data="+encodeURIComponent($('.emailTemplate').html()),
                   success: function(msg){
-					$('.preLoaderEmail img').hide();
+				  	$('.preLoaderEmail img').hide();
                   	$('.preLoaderEmail h4').html('Email Sent');
 					setTimeout("$('.preLoaderEmail').hide();$('.preLoaderEmail h4').html('Sending Email....');$('.preLoaderEmail img').show();",3000);
-                  }
+
+				  }
      });
 }
 
