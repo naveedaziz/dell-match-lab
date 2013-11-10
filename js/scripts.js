@@ -298,7 +298,11 @@ function StartApp(){
 																							
 									});
 			
-				
+				if($('.prodListings').html() == ''){
+					$('.UserMessageMatch').html('we are unable to find any matches for you at this time. Please try some different combination.');
+				}else{
+					$('.UserMessageMatch').html('we have found a few perfect matches for you');
+				}
 				var theNewRow = {
 						data_attributes: JSON.stringify(dataAttributes),
 						product_ids: JSON.stringify(ProductIds),
