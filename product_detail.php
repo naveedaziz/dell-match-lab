@@ -5,16 +5,22 @@ $data = fread($handle,filesize($my_file));
 $productInfo = json_decode($data, true);
 $id= '';
 $name= '';
-$image = '';
+$imas = '';
 $shortDesp = '';
+$image = '';
 foreach($productInfo as $index=>$val){
 	if($val['id'] == $_REQUEST['id']){
 		$id = $val['id'];
 		$name= $val['name'];
-		$image = $val['image'];
+		$imas =  json_decode($val['image'], true);
 		$shortDesp = $val['descp'];
 	};
 };
+foreach($imas as $img){
+	if($img['defaults'] == 'true'){
+		$image = 'http://dellmatchlab.com/admin/'.$img['img'];
+	}
+}
 
 
 ?>
