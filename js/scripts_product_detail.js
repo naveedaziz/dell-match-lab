@@ -71,8 +71,9 @@ function StartApp(){
 									$('.preLoader').hide();
 										var locations  = window.location.href;
 										locations = locations.split('?id=');
-										if(locations[1]){
-											var prodId = locations[1];
+										loc = locations[1].split('&');
+										if(loc[0]){
+											var prodId = loc[0];
 										}else{
 											var prodId = '';
 										}

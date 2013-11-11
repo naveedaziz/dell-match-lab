@@ -505,6 +505,10 @@ function StartApp(){
 		$('.sliderImg').attr('src',$(this).attr('src'));		
 	});
 	$(document.body).on('click', '.emailMatches', function() {
+		if($('.prodListings').html() == ''){
+					alert('No match found');
+					return true;	
+		}
 			$('.preLoaderEmail').show();
 			sendEmail();		
 		});
@@ -664,7 +668,6 @@ function StartApp(){
 }
 
 function sendEmail(){
-	console.log(ProductDataToEmail);
 	var EmailHtml = '';
 	var i = 1;
 	    EmailHtml += '<tr>';
