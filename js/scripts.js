@@ -252,7 +252,7 @@ function StartApp(){
 													appendHtml += '<div class="clearfix"></div>';
 													appendHtml += '</div>';
 													appendHtml += '</div> ';
-													appendHtml += '<div class="col-sm-12">';
+													appendHtml += '<div class="col-sm-12 prodImgMain" align="center" data-id="'+item.id+'">';
 													var prodImage = JSON.parse(item.product_images);
 													$.each(prodImage,function(id,itm){
 														if(itm.defaults == true){
@@ -270,7 +270,7 @@ function StartApp(){
 													var appendHtml = '';
 													appendHtml += '<div class="col-lg-4">';
 													appendHtml += '<div class="col-sm-12 prodThumb">';
-													appendHtml += '<div class="col-lg-12">';
+													appendHtml += '<div class="col-lg-12 prodImgInnerMain" align="center" data-id="'+item.id+'">';
 													var prodImage = JSON.parse(item.product_images);
 													$.each(prodImage,function(id,itm){
 														if(itm.defaults == true){
@@ -450,7 +450,15 @@ function StartApp(){
 	
 		productDetail($(this).attr('data-id'),1);
 	});
+	$(document.body).on('click', '.prodImgMain', function() {
+	
+		productDetail($(this).attr('data-id'),1);
+	});
 	$(document.body).on('click', '.prodImgInner', function() {
+		
+		productDetail($(this).attr('data-id'),3);
+	});
+	$(document.body).on('click', '.prodImgInnerMain', function() {
 		
 		productDetail($(this).attr('data-id'),3);
 	});

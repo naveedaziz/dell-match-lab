@@ -483,6 +483,9 @@ bubble p{
 	margin-top:20px;
 	cursor:pointer;
 }
+.prodImgMain,.prodImgInnerMain{
+	cursor:pointer;
+}
 .more{
 	background: url(../images/more.png);
 	width: 81px;
