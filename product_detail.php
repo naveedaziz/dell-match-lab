@@ -34,7 +34,7 @@ foreach($imas as $img){
 <meta property="fb:app_id" content="365073203627947" />
 <meta property="og:title" content="<?=$name;?>" />
 
-<meta property="og:url" content="http://dellmatchlab.com/product_detail?id=<?=$id;?>" />
+<meta property="og:url" content="http://dellmatchlab.com/product_detail.php?id=<?=$id;?>" />
 <meta property="og:image" content="<?=$image;?>" />
 <meta property="og:description" content="<?=$shortDesp;?>" />
 <meta property="og:site_name" content="Dell Match Lab" />
