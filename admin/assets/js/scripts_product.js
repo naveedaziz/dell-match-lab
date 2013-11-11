@@ -79,6 +79,7 @@ function StartApp(){
 											},2);*/
 			
 			query.read().then(function(todoItems) {
+				createJson(todoItems);
 				var listItems = $.map(todoItems, function(item) {
 					
 						var html='';
@@ -103,7 +104,23 @@ function StartApp(){
 		//end createHtmlForMovies
 		// event listener
 		
-		
+		function createJson(itm){
+			var Products = {};
+			$.each(itm,function(ind,item){
+				Products[ind] = {};
+				Products[ind]['id']=item.id;
+				Products[ind]['name']=item.name;
+				Products[ind]['image']=item.product_images;
+				Products[ind]['descp']=item.short_description;
+			})
+			 $.ajax({
+					  type: "POST",
+					  url: "create_json.php",
+					  data: "products="+JSON.stringify(Products),
+					  success: function(msg){
+					  }
+   				  });
+		}
 		$(document.body).on('click', '.edit', function() {
 			$('#cityId').val($(this).attr('data-id'));
 			$('#cityName').val(unescape(decodeURIComponent($(this).attr('data-name'))));
