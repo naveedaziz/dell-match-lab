@@ -63,8 +63,8 @@ foreach($imas as $img){
  <div class="col-lg-12">
          <div class="col-lg-5">
                         <a href="index.html"><img src="images/logo.png" class="logo">
-                         <h4 class="header_title">The Match Lab</h4>
-                         <img src="images/logo_icon.png" class="logoIcon"></a>
+                         <!--<h4 class="header_title">The Match Lab</h4>-->
+                         <!--<img src="images/logo_icon.png" class="logoIcon">--></a>
           </div>
   <div class="col-lg-7">
   	<h4  class="header_sub_heading">Meet your perfect match from the Dell family of products</h4>

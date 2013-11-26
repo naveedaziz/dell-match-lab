@@ -118,3 +118,59 @@ url('museo900-regular_0-webfont.svg#museo900') format('svg');
     font-style: normal;
 
 }
+@font-face {
+    font-family: 'museo_for_dellbold';
+    src: url('museofordell-bold-webfont.eot');
+    src: url('museofordell-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('museofordell-bold-webfont.woff') format('woff'),
+         url('museofordell-bold-webfont.ttf') format('truetype'),
+         url('museofordell-bold-webfont.svg#museo_for_dellbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'museo_for_dellregular';
+    src: url('museofordell-regular-webfont.eot');
+    src: url('museofordell-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('museofordell-regular-webfont.woff') format('woff'),
+         url('museofordell-regular-webfont.ttf') format('truetype'),
+         url('museofordell-regular-webfont.svg#museo_for_dellregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'museo_sans_for_dellbold';
+    src: url('museosansfordell-bold-webfont.eot');
+    src: url('museosansfordell-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('museosansfordell-bold-webfont.woff') format('woff'),
+         url('museosansfordell-bold-webfont.ttf') format('truetype'),
+         url('museosansfordell-bold-webfont.svg#museo_sans_for_dellbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'museo_sans_for_dellregular';
+    src: url('museosansfordell-regular-webfont.eot');
+    src: url('museosansfordell-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('museosansfordell-regular-webfont.woff') format('woff'),
+         url('museosansfordell-regular-webfont.ttf') format('truetype'),
+         url('museosansfordell-regular-webfont.svg#museo_sans_for_dellregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
