@@ -485,6 +485,12 @@ bubble p{
 	margin-top:20px;
 	cursor:pointer;
 }
+.prodImg{
+	margin-bottom: 45px;
+	width: 100%;
+}
+
+
 .prodImgMain,.prodImgInnerMain{
 	cursor:pointer;
 }
@@ -701,4 +707,8 @@ font-size: 13px;
 }
 input{
 	font-family:Arial, Helvetica, sans-serif;
+}
+.prodImgMain {
+	cursor: pointer;
+	min-height: 351px;
 }
