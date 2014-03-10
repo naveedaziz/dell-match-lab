@@ -53,14 +53,131 @@ function StartApp(){
 		//end get city function
 		
 		// createHtmlForMovies
-		function createHtmlForTable(){
-			//alert('');
-			
-			
-			
-			
-			var queryMap = ClientsTable.where({}).take(1000);
+		var totalCounts = 1000;
+		var maxCount = 1000;
+		var userData = [];
+		function getClientData(skp,tak){
+			var queryMap = ClientsTable.where({}).skip(skp).take(tak).includeTotalCount();
 			queryMap.read().then(function(ClientsTable) {
+				//console.log(ClientsTable);
+				$.each(ClientsTable,function(index,item){
+					userData.push(item);
+				});
+				if(ClientsTable.totalCount > totalCounts){
+					totalCounts = totalCounts + 1000;
+					//console.log(totalCounts);
+					getClientData((totalCounts - 1000),maxCount);
+				}else{					
+					$.each(userData, function(index,item) {
+					 if(item.country_id != ''){
+						 if(CountryMaps[item.country_id]){
+							CountryMaps[item.country_id]['count'] = CountryMaps[item.country_id]['count'] +1;						
+						 }else{
+							CountryMaps[item.country_id] = {};
+							CountryMaps[item.country_id]['count'] = 1;
+							CountryMaps[item.country_id]['country'] = item.country;
+						 }
+					 }else{
+					 	uncounts =  uncounts+1;
+					 }
+				 });	
+				 console.log(CountryMaps);			 
+					getClientDataMatches(0,maxCount);
+				}
+			});
+		}
+		var userDataMatch = [];
+		var totalCountsMatch = 1000;
+		function getClientDataMatches(skp,tak){
+			var queryMap = ClientsMatchTable.where({}).skip(skp).take(tak).includeTotalCount();
+			queryMap.read().then(function(ClientsTable) {
+				//console.log(ClientsTable);
+				$.each(ClientsTable,function(index,item){
+					userDataMatch.push(item);
+				});
+				if(ClientsTable.totalCount > totalCountsMatch){
+					totalCountsMatch = totalCountsMatch + 1000;
+					//console.log(totalCounts);
+					getClientDataMatches((totalCountsMatch - 1000),maxCount);
+				}else{
+					console.log(userDataMatch);
+					$.each(userDataMatch, function(index,item) {
+								 var DataAttributes = JSON.parse(item.data_attributes);
+								 var DataProductAttributes = JSON.parse(item.product_ids);
+								 if(CountryMapsData[DataAttributes.country]){
+									CountryMapsData[DataAttributes.country]['count'] = CountryMapsData[DataAttributes.country]['count'] +1;
+										$.each(DataProductAttributes,function(idx,itx){
+												if(itx == 4){
+													if(productMaps[DataAttributes.country+'|'+idx]){
+														productMaps[DataAttributes.country+'|'+idx] = productMaps[DataAttributes.country+'|'+idx] + 1;
+													}else{
+														productMaps[DataAttributes.country+'|'+idx] = 1;
+													}
+												}
+										});
+									
+								 }else{
+									CountryMapsData[DataAttributes.country] = {};
+									CountryMapsData[DataAttributes.country]['count'] = 1;
+									$.each(DataProductAttributes,function(idx,itx){
+												if(itx == 4){
+													if(productMaps[DataAttributes.country+'|'+idx]){
+														productMaps[DataAttributes.country+'|'+idx] = productMaps[DataAttributes.country+'|'+idx] + 1;
+													}else{
+														productMaps[DataAttributes.country+'|'+idx] = 1;
+													}
+												}
+										});
+								 }
+							 });
+							 var query = CountryAttributeTable.where({status:'1'}).take(1000);
+			
+		  
+							
+							query.read().then(function(todoItems) {
+								 $.each(todoItems, function(index,item) {
+												prodAttr[item.id] = {};
+												prodAttr[item.id]['name'] = item.name;
+										//console.log(prodAttr);
+								 });
+								 
+							}, handleError).done(function(){
+								var query = CatagoryTable.where({status:'1'}).take(1000);
+									query.read().then(function(todoItems) {
+									 $.each(todoItems, function(index,item) {
+										 Catagories[item.id] = {};
+										 Catagories[item.id]['name'] = item.name;
+										 Catagories[item.id]['products'] = {};
+									 });
+									 
+								}, handleError).done(function(){
+									//console.log(Catagories);
+										var query = ProductTable.where({status:'1'}).orderBy('catagory').take(1000);;
+											query.read().then(function(todoItems) {
+											 $.each(todoItems, function(index,item) {
+												 Catagories[item.catagory]['products'][item.id] = item.name;
+											 });
+											 
+										}, handleError).done(function(){
+												//console.log(prodAttr);
+												//console.log(Catagories);
+												BuildTable();
+												CreateCountryHtml();
+										});
+									
+										
+								});
+									
+							});
+				}
+			});
+		}
+		function createHtmlForTable(){
+			getClientData(0,maxCount);
+			/*var totalResults = 1000;
+			var queryMap = ClientsTable.where({}).take(1000).includeTotalCount();
+			queryMap.read().then(function(ClientsTable) {
+					getClientData(ClientsTable.totalCount);
 				
 				 $.each(ClientsTable, function(index,item) {
 					 if(item.country_id != ''){
@@ -119,9 +236,7 @@ function StartApp(){
 			//return true;
 			var query = CountryAttributeTable.where({status:'1'}).take(1000);
 			
-		  /*var query = todoItemTable.where(function(dated){
-											return this.id <= dated
-											},2);*/
+		  
 			
 			query.read().then(function(todoItems) {
 				 $.each(todoItems, function(index,item) {
@@ -156,7 +271,7 @@ function StartApp(){
 						
 				});
 					
-			});
+			});*/
     
 		}
 		createHtmlForTable();
